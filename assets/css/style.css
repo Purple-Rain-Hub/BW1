@@ -67,10 +67,6 @@ form {
   position: relative;
 }
 
-input {
-    opacity: 0;
-    cursor: pointer;
-}
 
 #btnWelcomeProceed {
   background-color: #00ffff;
@@ -93,11 +89,39 @@ a:-webkit-any-link {
   font-weight: bold;
 }
 
-.container input {
-    position: absolute;
-    _opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+.checkbox-container input[type="checkbox"] {
+    display: none;
   }
-  
+
+.checkbox-container label {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    padding-left: 2.5rem;
+    line-height: 1.2;
+    user-select: none;
+  }
+
+  .checkbox-container label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffffff;
+    background-color: #ffffff00;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+
+  .checkbox-container input[type="checkbox"]:checked + label::before {
+    background-color: #c2128d;
+    border-color: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
