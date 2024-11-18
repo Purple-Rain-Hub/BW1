@@ -1,11 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>prova</title>
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-    
+    <div id="container">
+        <!--Header con solo logo-->
+        <header>
+            <img src="assets/img/epicode_logo.png" alt="logo epicode">
+        </header>
+        <!--Fine header-->
+        <!--Inizio Main-->
+        <main>
+            <h1>Welcome to <strong>your exam</strong></h1> <!--Titolo-->
+            <h2>instruction</h2>
+            <p>We don't expect most engineers to know the answers to all of these questione, so don't worry if you're
+                ensure of a few of them.</p>
+            <ul>
+                <li>Each question is <b>timed</b> and can only be <b>answered once</b></li>
+                <li>Changing browser tab or opening other windows will <b>invalidate the question</b></li>
+                <li>This exam will take approx. <b>0-5 minutes.</b></li>
+            </ul>
+            <form action=""><!--Da inserire riferimento a pagina 2-->
+                <input type="checkbox" id="welcomeCheck" name="welcomeCheck"> <label for="welcomeCheck">I promise to
+                    answer myself without help from anyone</label>
+                <button type="submit" id="btnWelcomeProceed"> PROCEED</button>
+            </form>
+        </main>
+    </div>
 </body>
-</html>asdasdasdsdasdasdas
+
+</html>
