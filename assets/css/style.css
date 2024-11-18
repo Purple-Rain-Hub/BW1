@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #e7e7eb;
+  font-family: "Inter", sans-serif;
+}
+
+#container {
+  background-image: url(/assets/images/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 2em 5em;
+}
+
+header {
+  margin-bottom: 3em;
+}
+header img {
+  width: 15%;
+}
+
+h1 {
+  font-family: "Outfit", sans-serif;
+  font-size: 2em;
+}
