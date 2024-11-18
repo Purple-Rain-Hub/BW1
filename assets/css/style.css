@@ -95,7 +95,7 @@ a:-webkit-any-link {
 
 .container input {
     position: absolute;
-    opacity: 0;
+    _opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
