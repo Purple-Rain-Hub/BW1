@@ -1,20 +1,19 @@
-let welcomeCheck = document.getElementById("welcomeCheck");
-let btnWelcomeProceed = document.getElementById("btnWelcomeProceed");
-let errorCheck = document.getElementById("errorCheck");
-errorCheck.style.display = "none";
+const welcomeCheck = document.getElementById("welcomeCheck");
+const btnWelcomeProceed = document.getElementById("btnWelcomeProceed");
+const errorCheck = document.getElementById("errorCheck");
 
-document.addEventListener("load", init)
-
-function init(){
-    btnWelcomeProceed.setAttribute("disabled", "true");
+document.addEventListener("load", init());
+function init() {
+  btnWelcomeProceed.disabled = true;
+  errorCheck.style.display = "none";
 }
 
+function boxCheck() {
+  if (welcomeCheck.checked) btnWelcomeProceed.disabled = false;
+  else {
+    btnWelcomeProceed.disabled = true;
+    errorCheck.style.display = "block";
+  }
+}
 
-btnWelcomeProceed.addEventListener("click", function(e){
-    e.preventDefault;
-    if (welcomeCheck.checked)
-        console.log("evviva");
-    else if(!welcomeCheck.checked)
-        errorCheck.style.display = "block";
-})
-
+welcomeCheck.onclick = boxCheck;
