@@ -25,12 +25,6 @@ h1 {
   font-size: 2em;
 }
 
-#resultChart {
-  _width: 30%;
-  margin: 0 auto;
-  margin-bottom: 3em;
-}
-
 .resultHeadings {
   text-align: center;
   margin-bottom: 3em;
@@ -56,14 +50,15 @@ h1 {
 #chartText {
   position: absolute;
   text-align: center;
-  top: 45%;
-  left: 45%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .padreProva {
   width: 100%;
   display: flex;
+  margin-bottom: 3em;
 }
 
 .prova {

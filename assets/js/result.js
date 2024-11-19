@@ -19,7 +19,7 @@ new Chart(resultChart, {
     ],
   },
   options: { //impostazioni del grafico
-    responsive: true, //rende il grafico adattabile ad ogni tipo di schermo
+    //responsive: true, //rende il grafico adattabile ad ogni tipo di schermo
     plugins: { //funzionalità extra
       legend: { //legenda per distinguere i dati del grafico
         position: "none",
