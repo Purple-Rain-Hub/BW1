@@ -13,7 +13,10 @@
   padding: 2em 5em;
   width: 100%;
 }
-
+header {
+  display: flex;
+  justify-content: space-between;
+}
 header img {
   width: 15%;
 }
@@ -102,7 +105,7 @@ form {
   user-select: none;
 }
 
-.checkbox-container label::before {
+.checkboxContainer label::before {
   content: "";
   position: absolute;
   left: 0;
@@ -115,7 +118,7 @@ form {
   transition: background-color 0.3s, border-color 0.3s;
 }
 
-.checkbox-container input[type="checkbox"]:checked + label::before {
+.checkboxContainer input[type="checkbox"]:checked + label::before {
   background-color: #c2128d;
   border-color: none;
   display: flex;
@@ -126,4 +129,18 @@ form {
 #errorCheck {
   padding-left: 2.5rem;
   color: #c2128d;
+}
+
+#timer {
+  flex: 0 0 auto;
+}
+
+text {
+  font-size:0.5em;
+}
+.staticTextTimer {
+  color: #e7e7eb;
+}
+#timerText{
+  font-size: 1.2rem;
 }
