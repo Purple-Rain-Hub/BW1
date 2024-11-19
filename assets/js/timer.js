@@ -8,11 +8,10 @@ const intervalDuration = 1000; // Intervallo in millisecondi
 
 
 
-let remainingTime = totalDuration; 
 
 
 function timer(totalDuration, circle) {
-    
+  let remainingTime = totalDuration; 
 
   const circleCircumference = 2 * Math.PI * 40; // Circonferenza del cerchio (2 * π * r)
   const timerInterval = setInterval(() => {
