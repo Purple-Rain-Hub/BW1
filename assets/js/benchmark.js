@@ -143,10 +143,6 @@ function showQuestion() {
 
 // Funzione per gestire il clic su un'opzione
 function handleAnswerClick(answer, buttonElement) {
-  // Disabilita i bottoni dopo che è stata fatta una scelta
-  const buttons = document.querySelectorAll('#options-container button');
-  buttons.forEach((button) => (button.disabled = true));
-
   // Evidenzia la risposta selezionata
   buttonElement.classList.add('selected');
   selectedAnswer = answer;
@@ -185,12 +181,12 @@ function saveAnswer(questionIndex, isCorrect) {
 }
 // Funzione per andare ai risultati
 function showGoToResultsButton() {
-    const nextButton = document.getElementById('next-button');
-    nextButton.innerText = "GO TO RESULTS";
-    nextButton.onclick = function() {
-      window.location.href = 'results.html';
-    };
-  }
+  const nextButton = document.getElementById('next-button');
+  nextButton.innerText = 'GO TO RESULTS';
+  nextButton.onclick = function () {
+    window.location.href = 'results.html';
+  };
+}
 
 // Funzione per inizializzare il quiz
 function initQuiz() {
