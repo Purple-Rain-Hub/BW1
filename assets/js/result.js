@@ -19,7 +19,8 @@ new Chart(resultChart, {
     ],
   },
   options: { //impostazioni del grafico
-    //responsive: true, //rende il grafico adattabile ad ogni tipo di schermo
+    responsive: true, //rende il grafico adattabile ad ogni tipo di schermo
+    cutout: '70%',
     plugins: { //funzionalità extra
       legend: { //legenda per distinguere i dati del grafico
         position: "none",
@@ -39,7 +40,7 @@ new Chart(resultChart, {
 
 function textInChart() {
     if (correctAnswers>wrongAnswers) {
-        return chartText.innerHTML = `<h3>Congratulations!</h3><p>You passed the exam</p>`
+        return chartText.innerHTML = `<h3>Congratulations!</h3><p>You passed the exam.</p><br/><p>We'll send you the certificate in few minutes. Check your email (including promotions / spam folder)</p>`
     } else {
         return chartText.innerHTML = `<h3>Try Again!</h3><p>You failed the exam</p>`
     }
