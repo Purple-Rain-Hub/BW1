@@ -11,6 +11,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   padding: 2em 5em;
+  width: 100%;
 }
 
 header img {
@@ -65,8 +66,8 @@ ul li {
 
 form {
   position: relative;
+  margin-bottom: 10px;
 }
-
 
 #btnWelcomeProceed {
   background-color: #00ffff;
@@ -78,7 +79,7 @@ form {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  box-shadow: 0px 0px 55px -16px #00ffff,;
+  box-shadow: 0px 0px 55px -16px #00ffff;
   margin-right: 2em;
   font-family: "Outfit", sans-serif;
   color: black;
@@ -87,38 +88,42 @@ form {
 }
 
 .checkbox-container input[type="checkbox"] {
-    display: none;
-  }
+  display: none;
+}
 
 .checkbox-container label {
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    padding-left: 2.5rem;
-    line-height: 1.2;
-    user-select: none;
-  }
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  padding-left: 2.5rem;
+  line-height: 1.2;
+  user-select: none;
+}
 
-  .checkbox-container label::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    border: 2px solid #ffffff;
-    background-color: #ffffff00;
-    transition: background-color 0.3s, border-color 0.3s;
-  }
+.checkbox-container label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffffff;
+  background-color: #ffffff00;
+  transition: background-color 0.3s, border-color 0.3s;
+}
 
-  .checkbox-container input[type="checkbox"]:checked + label::before {
-    background-color: #c2128d;
-    border-color: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.checkbox-container input[type="checkbox"]:checked + label::before {
+  background-color: #c2128d;
+  border-color: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+#errorCheck {
+  padding-left: 2.5rem;
+  color: #c2128d;
+}
