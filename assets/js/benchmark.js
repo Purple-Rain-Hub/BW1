@@ -94,52 +94,109 @@ const questions = [
   },
 ];
 
-// Dichiaro le constanti
-
-const questionContainer = document.getElementById('questionContainer');
-const btnSubmit = document.getElementById('btnSubmit');
-const result = document.getElementById('result');
-const questionNumber = document.getElementById('questionNumber');
 let currentQuestionIndex = 0;
 let score = 0;
+let selectedAnswer = null; // Variabile per memorizzare la risposta selezionata
 
-// Mostrare una domanda alla volta
-
-function showQuestions(i) {
-  questionContainer.innerHTML = '';
-  const question = questions[i];
-  const options = [...question.incorrect_answers, question.correct_answer].sort(
-    () => Math.random() - 0.5
-  );
-
-  const questionDiv = document.createElement('div');
-  questionDiv.classList.add('question-container', 'active');
-  questionDiv.innerHTML = `
-      <h1>${question.question}</h1>
-      ${options
-        .map(
-          (option) => `
-        <label>
-          <input type="radio" name="question-${index}" value="${option}">
-          ${option}
-        </label><br>
-      `
-        )
-        .join('')}
-    `;
-  questionContainer.appendChild(questionDiv);
-
-  // Aggiorno il footer con il numero della domanda
-  footer.innerText = `QUESTION ${index + 1} / ${questions.length}`;
-
-  // Abilito il pulsante dopo aver scelto una risposta
-  const inputs = questionDiv.querySelectorAll("input[type='radio']");
-  inputs.forEach((input) =>
-    input.addEventListener('change', () => {
-      btnSubmit.disabled = false;
-    })
-  );
+// Funzione per mescolare le domande
+function shuffleQuestions() {
+  // Mescolare l'array delle domande
+  questions.sort(() => Math.random() - 0.5);
 }
 
-// Mostra la prima domanda all'inizio
-showQuestions(currentQuestionIndex);
+// Funzione per visualizzare la domanda
+function showQuestion() {
+  const currentQuestion = questions[currentQuestionIndex];
+  const questionContainer = document.getElementById('questionContainer');
+  const questionNumber = document.getElementById('questionNumber');
+
+  // Mescolare le risposte
+  const options = [
+    ...currentQuestion.incorrect_answers,
+    currentQuestion.correct_answer,
+  ].sort(() => Math.random() - 0.5);
+
+  // Mark up domande e risposte
+  const questionHTML = `
+  <h1>${currentQuestion.question}</h1>
+  <div id="options-container">
+    ${options
+      .map(
+        (option, index) => `
+      <div class="option">
+        <button id="option-${index}" onclick="handleAnswerClick('${option}', this)">
+          ${option}
+        </button>
+      </div>
+    `
+      )
+      .join('')}
+  </div>
+  <button id="next-button" onclick="nextQuestion()" disabled>PROCEED</button>
+`;
+
+  questionContainer.innerHTML = questionHTML;
+  questionNumber.innerHTML = `QUESTION ${currentQuestionIndex + 1}/${
+    questions.length
+  }`;
+}
+
+// Funzione per gestire il clic su un'opzione
+function handleAnswerClick(answer, buttonElement) {
+  // Disabilita i bottoni dopo che è stata fatta una scelta
+  const buttons = document.querySelectorAll('#options-container button');
+  buttons.forEach((button) => (button.disabled = true));
+
+  // Evidenzia la risposta selezionata
+  buttonElement.classList.add('selected');
+  selectedAnswer = answer;
+
+  // Abilita il bottone "Prossima domanda" se una risposta è selezionata
+  document.getElementById('next-button').disabled = false;
+}
+
+// Funzione per passare alla domanda successiva
+function nextQuestion() {
+  if (!selectedAnswer) return;
+
+  const currentQuestion = questions[currentQuestionIndex];
+
+  // Verifica se la risposta è corretta e salva nel localStorage
+  const isCorrect = selectedAnswer === currentQuestion.correct_answer ? 1 : 0;
+  saveAnswer(currentQuestionIndex, isCorrect);
+
+  // Passa alla domanda successiva
+  currentQuestionIndex++;
+
+  // Se ci sono altre domande, mostra la successiva
+  if (currentQuestionIndex < questions.length) {
+    showQuestion();
+  } else {
+    // Se tutte le domande sono state risposte, collega alla pagina dei risultati
+    showGoToResultsButton();
+  }
+}
+
+// Funzione per salvare la risposta nel localStorage
+function saveAnswer(questionIndex, isCorrect) {
+  const answers = JSON.parse(localStorage.getItem('quiz_answers')) || [];
+  answers[questionIndex] = isCorrect;
+  localStorage.setItem('quiz_answers', JSON.stringify(answers));
+}
+// Funzione per andare ai risultati
+function showGoToResultsButton() {
+    const nextButton = document.getElementById('next-button');
+    nextButton.innerText = "GO TO RESULTS";
+    nextButton.onclick = function() {
+      window.location.href = 'results.html';
+    };
+  }
+
+// Funzione per inizializzare il quiz
+function initQuiz() {
+  shuffleQuestions(); // Mescolare le domande
+  showQuestion(); // Mostra la prima domanda
+}
+
+// Avvia il quiz quando la pagina è caricata
+window.onload = initQuiz;
