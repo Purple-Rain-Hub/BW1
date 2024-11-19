@@ -2,38 +2,60 @@
 <html lang="it">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome Page</title>
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body>
     <div id="container">
         <!--Header con solo logo-->
         <header>
-            <img src="assets/images/epicode_logo.png" alt="logo epicode">
+            <img id="logo" src="assets/images/epicode_logo.png" alt="logo epicode" />
         </header>
         <!--Fine header-->
         <!--Inizio Main-->
         <main>
-            <h1>Welcome to <strong>your exam</strong></h1> <!--Titolo-->
-            <h2>instruction</h2>
-            <p>We don't expect most engineers to know the answers to all of these questione, so don't worry if you're
-                ensure of a few of them.</p>
-            <ul> <!--lista non ordinata con parole in grassetto-->
-                <li>Each question is <b>timed</b> and can only be <b>answered once</b></li>
-                <li>Changing browser tab or opening other windows will <b>invalidate the question</b></li>
+            <div class="welcomeContainer">
+                <h1>Welcome to <strong>your exam</strong></h1>
+                <!--Titolo-->
+                <h2>Instructions</h2>
+                <p>
+                    We don't expect most engineers to know the answers to all of these
+                    questions, so don't worry if you're ensure of a few of them.
+                </p>
+            </div>
+            <ul>
+                <!--lista non ordinata con parole in grassetto-->
+                <li>
+                    Each question is <b>timed</b> and can only be <b>answered once</b>
+                </li>
+                <li>
+                    Changing browser tab or opening other windows will
+                    <b>invalidate the question</b>
+                </li>
                 <li>This exam will take approx. <b>0-5 minutes.</b></li>
             </ul>
-            <form action=""><!--Da inserire riferimento a pagina 2-->
-                <input type="checkbox" id="welcomeCheck" name="welcomeCheck"> <label for="welcomeCheck">I promise to
-                    answer myself without help from anyone</label>
-                <button type="submit" id="btnWelcomeProceed"> PROCEED</button>
+
+            <form action="benchmark.html"> <!--collegamento seconda pagina-->
+                <div class="checkboxContainer">
+                    <input type="checkbox" id="welcomeCheck" name="welcomeCheck" /><label for="welcomeCheck">I promise
+                        to answer myself without help from anyone</label>
+                </div>
+                <button type="submit" id="btnWelcomeProceed">PROCEED</button>
+                <!--link a pagina2?-->
             </form>
+            <p id="errorCheck">check the box to proceed</p>
         </main>
     </div>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

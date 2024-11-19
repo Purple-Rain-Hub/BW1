@@ -11,10 +11,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   padding: 2em 5em;
+  width: 100%;
 }
-
 header {
-  margin-bottom: 3em;
+  display: flex;
+  justify-content: space-between;
 }
 header img {
   width: 15%;
@@ -31,4 +32,122 @@ h1 {
 .star {
   filter: invert(100%) sepia(97%) saturate(13%) hue-rotate(237deg)
     brightness(104%) contrast(104%);
+main {
+  width: 100%;
+  padding: 5.6em 0;
+}
+
+.welcomeContainer {
+  width: 50%;
+  margin-bottom: 1em;
+}
+
+.welcomeContainer h1 {
+  font-size: 5em;
+  margin-bottom: 2.5rem;
+  line-height: 0.8;
+}
+
+.welcomeContainer h2 {
+  font-family: "Outfit", sans-serif;
+  color: #c2128d;
+  font-weight: bold;
+  font-size: 1.9em;
+  margin-bottom: 10px;
+}
+
+.welcomeContainer {
+  line-height: 1.2;
+}
+
+strong,
+b {
+  font-weight: bold;
+}
+
+ul {
+  padding: 1.5em;
+  margin-bottom: 4.5em;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+form {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+#btnWelcomeProceed {
+  background-color: #00ffff;
+  float: right;
+  border: none;
+  padding: 0.8em 3em;
+  font-size: 1.5em;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0px 0px 55px -16px #00ffff;
+  margin-right: 2em;
+  font-family: "Outfit", sans-serif;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.checkbox-container input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-container label {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  padding-left: 2.5rem;
+  line-height: 1.2;
+  user-select: none;
+}
+
+.checkboxContainer label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffffff;
+  background-color: #ffffff00;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.checkboxContainer input[type="checkbox"]:checked + label::before {
+  background-color: #c2128d;
+  border-color: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#errorCheck {
+  padding-left: 2.5rem;
+  color: #c2128d;
+}
+
+#timer {
+  flex: 0 0 auto;
+}
+
+text {
+  font-size:0.5em;
+}
+.staticTextTimer {
+  color: #e7e7eb;
+}
+#timerText{
+  font-size: 1.2rem;
 }
