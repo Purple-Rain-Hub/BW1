@@ -23,7 +23,7 @@
           id="logo"
         />
       </header>
-      <main>
+      <main id="resultMain">
         <div class="resultHeadings">
           <!-- TITOLO -->
           <h1>Results</h1>
@@ -31,29 +31,29 @@
           <h2>The summary of your answers:</h2>
         </div>
         <div class="padreProva">
-          <div class="prova">
+          <div class="provaText1">
             <!-- CORRECT ANS -->
-             <h3>Correct</h3>
+             <h4>Correct</h4>
              <p id="correctPercentage"></p>
              <p id="correctQuestions"></p>
           </div>
-          <div class="chartContainer prova">
+          <div class="chartContainer provaChart">
             <!-- CHART -->
-            <canvas width="250" height="250" id="resultChart"></canvas>
+            <canvas width="300" height="300" id="resultChart"></canvas>
             <div id="chartText">
               <!-- RISULTATO POSITIVO/NEGATIVO DINAMICO -->
             </div>
           </div>
-          <div class="prova">
+          <div class="provaText2">
             <!-- WRONG ANS -->
-             <h3>Wrong</h3>
+             <h4>Wrong</h4>
              <p id="wrongPercentage"></p>
              <p id="wrongQuestions"></p>
           </div>
         </div>
         <div class="buttonRateUs">
           <!-- BOTTONE -->
-          <button type="button" id="btnRateUs">RATE US</button>
+          <button type="button" id="btnRateUs"><a href="feedbackPage.html">RATE US</a></button>
           <!-- link per pagina 4 -->
         </div>
       </main>

@@ -23,47 +23,43 @@ function calcolateResults () {
     return {correctAnswers, wrongAnswers};
 }
 
-function createChart(correct, wrong) {
+function createChart(wrong, correct) {
 new Chart(resultChart, {
   type: "doughnut",
   data: {
-    labels: ["Correct Answers", "Wrong Answers"],
+    labels: ["Wrong Answers", "Correct Answers"],
     datasets: [
       {
-        data: [correct, wrong],
-        backgroundColor: ["#01FFFF", "#C2138D"],
+        data: [wrong, correct],
+        backgroundColor: ["#C2138D", "#01FFFF"],
         borderColor: 'none',
         borderWidth: 0,
       },
     ],
   },
   options: { //impostazioni del grafico
+    rotation: Math.PI, //fa girare il grafico in senso orario in modo da vedere wrong e correct nel lato giusto
     responsive: false, //rende il grafico adattabile ad ogni tipo di schermo
     maintainAspectRatio: false,
-    cutout: '70%',
+    cutout: '72%',
     plugins: { //funzionalità extra
       legend: { //legenda per distinguere i dati del grafico
         position: "none",
       },
       tooltip: { //appaiono quando si passa il mouse su un elemento grafico
-        callbacks: { //personalizza i testi che appaiono nel tooltip
-          label: function (context) {
-            const label = context.label || ""; //nome del dato
-            const value = context.raw || 0; //valore del dato
-            return `${label}: ${value}`; //stringa finale da mostrare
-          },
+        enabled: false,
         },
       },
     },
-  },
-});
-};
+  })
+}
+
 const results = calcolateResults();
 createChart(results.correctAnswers, results.wrongAnswers);
 
 function textInChart() {
     if (results.correctAnswers>results.wrongAnswers) {
-        return chartText.innerHTML = `<h3>Congratulations!</h3><p class="correctAnswers">You passed the exam.</p><br/><p>We'll send you the certificate in few minutes. Check your email (including promotions / spam folder)</p>`
+        return chartText.innerHTML = `<h3>Congratulations!</h3><p class="correctAnswers">You passed the exam.</p><br/><p>We'll send you the certificate in few minutes. <br/> Check your email (including promotions / spam folder)</p>`
     } else {
         return chartText.innerHTML = `<h3>Try Again!</h3><p class="wrongAnswers">You failed the exam</p>`
     }
