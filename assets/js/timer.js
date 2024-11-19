@@ -1,15 +1,18 @@
 const timerProgress = document.getElementById("timerProgress");
 const timerText = document.getElementById("timerText");
 
-const totalDuration = 30; // Durata totale in secondi DA CAMBIRE SE VOGLIAMO UN TIMER DINAMICO
+const totalDuration = 30; // Durata totale in secondi DA CAMBIRE SE VOGLIAMO UN TIMER DINAMICO. Per farlo devo intercettare la difficoltà della domanda. 
 const difficulty = [30, 60]; //if facile 30 else 60
 
 const intervalDuration = 1000; // Intervallo in millisecondi
 
 
+
 let remainingTime = totalDuration; 
 
+
 function timer(totalDuration, circle) {
+    
 
   const circleCircumference = 2 * Math.PI * 40; // Circonferenza del cerchio (2 * π * r)
   const timerInterval = setInterval(() => {
