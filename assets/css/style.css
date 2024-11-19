@@ -168,8 +168,7 @@ text {
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 2em;
-  
-}
+  }
 
 .option{
   width: 400px;
@@ -212,3 +211,5 @@ align-self: flex-end;
   text-decoration: none;
   font-weight: bold;
 }
+
+
