@@ -26,12 +26,6 @@ h1 {
   font-size: 2em;
 }
 
-/* MAGIA DELLE STELLINE*/
-
-/* filter per colorare di grigio le stelle inizialmente*/
-.star {
-  filter: invert(100%) sepia(97%) saturate(13%) hue-rotate(237deg)
-    brightness(104%) contrast(104%);
 main {
   width: 100%;
   padding: 5.6em 0;
@@ -150,4 +144,33 @@ text {
 }
 #timerText{
   font-size: 1.2rem;
+}
+
+/* MAGIA DELLE STELLINE*/
+
+/* filter per colorare di grigio le stelle inizialmente*/
+.star {
+  filter: invert(100%) sepia(97%) saturate(13%) hue-rotate(237deg)
+    brightness(104%) contrast(104%);
+}
+
+/*CSS FEEDBACK PAGE*/
+#feedbackTitle {
+  font-size: 3em;
+  font-weight: bolder;
+  padding: 2%;
+}
+
+#containerFeedback:not(header) {
+  text-align: center;
+}
+
+#containerFeedback main p{
+  font-size: 170%;
+  padding: 2%;
+}
+
+#containerFeedback aside p{
+  font-size: 170%;
+  padding: 2%;
 }
