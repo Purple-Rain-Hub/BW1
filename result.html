@@ -6,15 +6,12 @@
     <title>result page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/reset.css" />
-    <link rel="stylesheet" href="assets/css/result.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <div id="container">
@@ -27,22 +24,30 @@
         />
       </header>
       <main>
-        <div>
+        <div class="resultHeadings">
           <!-- TITOLO -->
           <h1>Results</h1>
           <!-- SOTTOTITOLO -->
-          <h2>The summary of your answers</h2>
+          <h2>The summary of your answers:</h2>
         </div>
-        <div>
-          <!-- CHART -->
-          <canvas id="myChart"></canvas>
+        <div class="padreProva">
+          <div class="prova">
+            <!-- CORRECT ANS -->
+          </div>
+          <div class="chartContainer prova">
+            <!-- CHART -->
+            <canvas id="resultChart"></canvas>
+            <div id="chartText">
+              <!-- SUMMARY DELLE RISPOSTE DINAMICO -->
+            </div>
+          </div>
+          <div class="prova">
+            <!-- WRONG ANS -->
+          </div>
         </div>
-        <div id="chartText">
-         <!-- SUMMARY DELLE RISPOSTE DINAMICO -->
-        </div>
-        <div>
+        <div class="buttonRateUs">
           <!-- BOTTONE -->
-          <button type="button" id="btnRateUs"><a>RATE US</a></button>
+          <button type="button" id="btnRateUs">RATE US</button>
           <!-- link per pagina 4 -->
         </div>
       </main>

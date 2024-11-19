@@ -1,10 +1,10 @@
-const myChart = document.getElementById("myChart");
+const resultChart = document.getElementById("resultChart");
 const chartText = document.getElementById('chartText');
 
-const correctAnswers = 5;
-const wrongAnswers = 5;
+const correctAnswers = 6;
+const wrongAnswers = 4;
 
-new Chart(myChart, {
+new Chart(resultChart, {
   type: "doughnut",
   data: {
     labels: ["Correct Answers", "Wrong Answers"],
@@ -13,8 +13,8 @@ new Chart(myChart, {
         label: "Risultati quiz",
         data: [correctAnswers, wrongAnswers],
         backgroundColor: ["#01FFFF", "#C2138D"],
-        //borderColor: ["rgba(75, 192, 192, 1)", "rgba(255, 99, 132, 1)"],
-        borderWidth: 1,
+        borderColor: 'none',
+        borderWidth: 0,
       },
     ],
   },
@@ -36,3 +36,13 @@ new Chart(myChart, {
     },
   },
 });
+
+function textInChart() {
+    if (correctAnswers>wrongAnswers) {
+        return chartText.innerHTML = `<h3>Congratulations!</h3><p>You passed the exam</p>`
+    } else {
+        return chartText.innerHTML = `<h3>Try Again!</h3><p>You failed the exam</p>`
+    }
+}
+textInChart();
+
