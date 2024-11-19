@@ -14,8 +14,11 @@
   background-size: cover;
   padding: 2em 5em;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  
 }
 
 header {
@@ -33,10 +36,11 @@ h1 {
 main,
 footer {
   width: 100%;
-  padding: 5.6em 0;
+  padding: 5em 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-items: center;  /*align content perchè stiamo centrando su un flex-direction column*/  
 }
 
 .welcomeContainer {
@@ -81,22 +85,19 @@ form {
   margin-bottom: 10px;
 }
 
-#btnWelcomeProceed {
+#btnWelcomeProceed, #next-button  {
   background-color: #00ffff;
-  float: right;
   border: none;
   padding: 0.8em 3em;
   font-size: 1.5em;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
   box-shadow: 0px 0px 55px -16px #00ffff;
-  margin-right: 2em;
+  margin-right: 1em;
   font-family: "Outfit", sans-serif;
   color: black;
   text-decoration: none;
   font-weight: bold;
+  align-self: flex-end;
+  cursor: pointer;
 }
 
 .checkbox-container input[type="checkbox"] {
@@ -157,65 +158,39 @@ text {
   font-size: 1.2rem;
 }
 
-.questionContainer {
-  padding: 0;
-  width: 100%;
-}
-
 .questionTitle {
   font-size: 3em;
-  width: 65%;
+  max-width: 45%;
   justify-self: center;
   margin-bottom: 1em;
   text-align: center;
 }
 
+#questionContainer {
+  padding: 1em 0;
+}
 #options-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 2em;
+  width: 80%;
 }
-
-.option {
-  width: 400px;
+#options-container button {
+  width: 35%;
   margin: 0.5em;
-  display: flex;
-  justify-content: center;
-}
-
-.option button {
-  min-width: 100%;
-  height: 5em;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-  background-color: none;
-}
-
-input[type="button"] {
-  display: none;
-}
-
-#questionContainer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-#next-button {
-  align-self: flex-end;
-  background-color: #00ffff;
-  border: none;
-  padding: 0.8em 3em;
-  font-size: 1.5em;
-  box-shadow: 0px 0px 55px -16px #00ffff;
-  margin-right: 2em;
-  font-family: "Outfit", sans-serif;
-  color: black;
-  text-decoration: none;
+  height: 6em;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.297);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.279);
+  font-size: 1em;
   font-weight: bold;
+  cursor: pointer;
+  position: relative; /* Necessario per il bordo gradiente con pseudo-elemento */
+  transition: all 0.3s ease; /* Transizioni fluide */
+  z-index: 1;
+  
 }
 
 .chartContainer {
@@ -268,4 +243,32 @@ input[type="button"] {
 
 .wrongAnswers {
   color: #c2138d;
+}
+#options-container button:hover {
+  border-width: 3px; /* Mantenere la larghezza del bordo */
+  color: white; /* Colore del testo invariato */
+  transform: scale(1.05); /* Effetto zoom sul bottone */
+  background-color:#c2128d;
+}
+  
+#options-container button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50px; 
+  padding: 2px; 
+  background:linear-gradient(180deg, rgba(245,245,245,1) 0%, rgba(0,0,0,0.24702380952380953) 100%);
+  mask: /*Using the mask property, we apply two opaque layers. The bottom one will cover the whole element and the top one will cover only the padding box (so it will not cover the border area)*/
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  mask-composite: exclude; 
+}
+
+#questionNumber{
+  font-family: "Outfit", sans-serif;
+  letter-spacing: 2px;
+}
+
+.markQuestion{
+  color: #c2128d;
 }

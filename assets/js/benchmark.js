@@ -123,11 +123,11 @@ function showQuestion() {
     ${options
       .map(
         (option, index) => `
-      <div class="option">
+      
         <button id="option-${index}" onclick="handleAnswerClick('${option}', this)">
           ${option}
         </button>
-      </div>
+      
     `
       )
       .join("")}
@@ -136,9 +136,7 @@ function showQuestion() {
 `;
 
   questionContainer.innerHTML = questionHTML;
-  questionNumber.innerHTML = `QUESTION ${currentQuestionIndex + 1}/${
-    questions.length
-  }`;
+  questionNumber.innerHTML = `QUESTION ${currentQuestionIndex + 1}/<span class="markQuestion">${questions.length}</span>`;
 }
 
 // Funzione per gestire il clic su un'opzione
