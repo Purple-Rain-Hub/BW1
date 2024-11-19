@@ -7,12 +7,17 @@
 }
 
 #container {
+  box-sizing: border-box;
+  height: 100%;
   background-image: url(/assets/images/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   padding: 2em 5em;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
+
 header {
   display: flex;
   justify-content: space-between;
@@ -25,11 +30,13 @@ h1 {
   font-family: "Outfit", sans-serif;
   font-size: 2em;
 }
-main, footer{
+main,
+footer {
   width: 100%;
   padding: 5.6em 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .welcomeContainer {
@@ -137,40 +144,40 @@ form {
   flex: 0 0 auto;
 }
 
-label{
+label {
   padding-left: 2em;
 }
 text {
-  font-size:0.5em;
+  font-size: 0.5em;
 }
 .staticTextTimer {
   color: #e7e7eb;
 }
-#timerText{
+#timerText {
   font-size: 1.2rem;
 }
 
-.questionContainer{
+.questionContainer {
   padding: 0;
   width: 100%;
 }
 
 .questionTitle {
   font-size: 3em;
-  width:65%;
+  width: 65%;
   justify-self: center;
   margin-bottom: 1em;
   text-align: center;
 }
 
-#options-container{
-  display: flex; 
+#options-container {
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 2em;
-  }
+}
 
-.option{
+.option {
   width: 400px;
   margin: 0.5em;
   display: flex;
@@ -181,25 +188,24 @@ text {
   min-width: 100%;
   height: 5em;
   border-top-left-radius: 50px;
-  border-top-right-radius: 50px ;
+  border-top-right-radius: 50px;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   background-color: none;
 }
 
-input[type="button"]{
+input[type="button"] {
   display: none;
 }
 
-#questionContainer{
+#questionContainer {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-
-#next-button{
-align-self: flex-end;
+#next-button {
+  align-self: flex-end;
   background-color: #00ffff;
   border: none;
   padding: 0.8em 3em;
@@ -212,4 +218,58 @@ align-self: flex-end;
   font-weight: bold;
 }
 
+.chartContainer {
+  position: relative;
+  display: inline-block;
+}
 
+#chartText {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.resultHeadings {
+  font-family: "Outfit", sans-serif;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.resultHeadings h1 {
+  font-weight: 600;
+  font-size: 2.5em;
+}
+
+.resultHeadings h2 {
+  font-size: 1.4em;
+  font-weight: 300;
+}
+
+.padreProva {
+  font-family: "Outfit", sans-serif;
+  width: 100%;
+  display: flex;
+  margin-bottom: 3em;
+}
+
+.prova {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 33%;
+}
+
+#resultChart {
+  width: 10em;
+}
+
+.correctAnswers {
+  color: #01ffff;
+}
+
+.wrongAnswers {
+  color: #c2138d;
+}
