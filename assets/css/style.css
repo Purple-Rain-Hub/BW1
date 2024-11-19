@@ -262,10 +262,6 @@ input[type="button"] {
   width: 33%;
 }
 
-#resultChart {
-  width: 10em;
-}
-
 .correctAnswers {
   color: #01ffff;
 }

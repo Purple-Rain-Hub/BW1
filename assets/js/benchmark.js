@@ -173,7 +173,6 @@ function nextQuestion() {
     showGoToResultsButton();
     clearInterval(interval);
   }
-  
 }
 
 // Funzione per salvare la risposta nel localStorage
@@ -187,7 +186,7 @@ function showGoToResultsButton() {
   const nextButton = document.getElementById("next-button");
   nextButton.innerText = "GO TO RESULTS";
   nextButton.onclick = function () {
-    window.location.href = "result.html";
+  location.href = "result.html";
   };
 }
 
@@ -209,12 +208,12 @@ const difficulty = [30, 60]; //if facile 30 else 60
 const intervalDuration = 1000; // Intervallo in millisecondi
 
 //TIMER//
-let interval
+let interval;
 
 function timer(totalDuration, circle) {
   let remainingTime = totalDuration;
 
-  const circleCircumference = 2 * Math.PI * 40; 
+  const circleCircumference = 2 * Math.PI * 40;
   // Circonferenza del cerchio (2 * π * r)
   clearInterval(interval);
   interval = setInterval(() => {
@@ -226,7 +225,7 @@ function timer(totalDuration, circle) {
     timerProgress.style.strokeDashoffset = offset; //la rimando sullo stile!
 
     if (remainingTime === 0) {
-      nextQuestion()
+      nextQuestion();
 
       //e stampa una nuova domanda
     }
