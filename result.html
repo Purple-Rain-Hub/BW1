@@ -31,18 +31,24 @@
           <h2>The summary of your answers:</h2>
         </div>
         <div class="padreProva">
-          <div class="prova">
+          <div class="prova" id="correct">
             <!-- CORRECT ANS -->
+             <h3>Correct</h3>
+             <p id="correctPercentage"></p>
+             <p id="correctQuestions">0/0 questions</p>
           </div>
           <div class="chartContainer prova">
             <!-- CHART -->
             <canvas id="resultChart"></canvas>
             <div id="chartText">
-              <!-- SUMMARY DELLE RISPOSTE DINAMICO -->
+              <!-- RISULTATO POSITIVO/NEGATIVO DINAMICO -->
             </div>
           </div>
-          <div class="prova">
+          <div class="prova" id="wrong">
             <!-- WRONG ANS -->
+             <h3>Wrong</h3>
+             <p id="wrongPercentage"></p>
+             <p id="wrongQuestions">0/0 questions</p>
           </div>
         </div>
         <div class="buttonRateUs">
