@@ -118,7 +118,7 @@ function showQuestion() {
 
   // Mark up domande e risposte
   const questionHTML = `
-  <h1>${currentQuestion.question}</h1>
+  <h1 class="questionTitle">${currentQuestion.question}</h1>
   <div id="options-container">
     ${options
       .map(

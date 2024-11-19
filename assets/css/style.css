@@ -25,9 +25,11 @@ h1 {
   font-family: "Outfit", sans-serif;
   font-size: 2em;
 }
-main {
+main, footer{
   width: 100%;
   padding: 5.6em 0;
+  display: flex;
+  justify-content: center;
 }
 
 .welcomeContainer {
@@ -127,7 +129,7 @@ form {
 }
 
 #errorCheck {
-  padding-left: 2.5rem;
+  padding-left: 2.8rem;
   color: #c2128d;
 }
 
@@ -135,6 +137,9 @@ form {
   flex: 0 0 auto;
 }
 
+label{
+  padding-left: 2em;
+}
 text {
   font-size:0.5em;
 }
@@ -143,4 +148,14 @@ text {
 }
 #timerText{
   font-size: 1.2rem;
+}
+
+
+.questionTitle {
+  font-size: 3em;
+}
+
+.questionContainer{
+  justify-content: center;
+  width: 60%;
 }
