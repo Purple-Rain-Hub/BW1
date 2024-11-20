@@ -317,7 +317,6 @@ function showGoToResultsButton() {
         <button class='blueBtn' onclick="goToResults()">GO TO RESULT</button>
           `;
   clearInterval(interval);
-  const timerContainer = document.getElementById('timer');
   timerContainer.innerText = '';
 }
 
@@ -328,6 +327,7 @@ function goToResults() {
 
 // Funzione per inizializzare il quiz
 function startQuiz() {
+  timerContainer.style.display = "block"
   shuffleQuestions(); // Mescolare le domande
   showQuestion(); // Mostra la prima domanda
   timer(difficulty, timerProgress);
@@ -345,6 +345,7 @@ const intervalDuration = 1000; // Intervallo in millisecondi
 const circleCircumference = 2 * Math.PI * 40;
 //TIMER//
 let interval;
+const timerContainer = document.getElementById('timer');
 
 function timer(totalDuration, circle) {
   let remainingTime = totalDuration;
@@ -372,6 +373,7 @@ function timer(totalDuration, circle) {
 
 //funzione init per la scelta della difficoltà
 function chooseDifficulty() {
+  timerContainer.style.display = "none";
   easyBtn.addEventListener("click", function () {
     questions = questionsEasy;
     document.getElementById("difficultyContainer").style.display = "none";
