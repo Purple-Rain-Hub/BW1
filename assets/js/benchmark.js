@@ -136,7 +136,9 @@ function showQuestion() {
 `;
 
   questionContainer.innerHTML = questionHTML;
-  questionNumber.innerHTML = `QUESTION ${currentQuestionIndex + 1}/<span class="markQuestion">${questions.length}</span>`;
+  questionNumber.innerHTML = `QUESTION ${
+    currentQuestionIndex + 1
+  }/<span class="markQuestion">${questions.length}</span>`;
 }
 
 // Funzione per gestire il clic su un'opzione
@@ -170,6 +172,7 @@ function nextQuestion() {
     // Se tutte le domande sono state risposte, collega alla pagina dei risultati
     showGoToResultsButton();
     clearInterval(interval);
+    timerEnd();
   }
 }
 
@@ -184,8 +187,17 @@ function showGoToResultsButton() {
   const nextButton = document.getElementById("next-button");
   nextButton.innerText = "GO TO RESULTS";
   nextButton.onclick = function () {
-  location.href = "result.html";
+    location.href = "result.html";
   };
+}
+
+function timerEnd() {
+  const questionText = document.getElementById("questionText");
+  questionText.innerHTML = `<tspan class="staticTextTimer" x="50" dy="-5"> COMPLIMENTI!</tspan>      
+                          <tspan class="staticTextTimer"x="50" dy="10">HAI FINITO!</tspan>`;
+  
+  const offset = circleCircumference; // stabilisco la formula
+  timerProgress.style.strokeDashoffset = offset;
 }
 
 // Funzione per inizializzare il quiz
@@ -204,27 +216,24 @@ const timerText = document.getElementById("timerText");
 const totalDuration = 30; // Durata totale in secondi DA CAMBIRE SE VOGLIAMO UN TIMER DINAMICO. Per farlo devo intercettare la difficoltà della domanda.
 const difficulty = [30, 60]; //if facile 30 else 60
 const intervalDuration = 1000; // Intervallo in millisecondi
-
+const circleCircumference = 2 * Math.PI * 40;
 //TIMER//
 let interval;
 
 function timer(totalDuration, circle) {
   let remainingTime = totalDuration;
-  const circleCircumference = 2 * Math.PI * 40;
   // Circonferenza del cerchio (2 * π * r)
   clearInterval(interval); //pulisce il timer prima di iniziarne uno nuovo
 
-
   timerText.innerHTML = `${remainingTime}`;
-      // modo per avere un'animazione dinamica del valore di dashoffset settato sull'html. Dashoffset NASCONDE tutto il cerchio e con questo modo lo rivela a partire dall'alto (grazie allo 0)
-      const offset = circleCircumference * (remainingTime / totalDuration); // stabilisco la formula
-      timerProgress.style.strokeDashoffset = offset; //la rimando sullo stile!
-  
+  // modo per avere un'animazione dinamica del valore di dashoffset settato sull'html. Dashoffset NASCONDE tutto il cerchio e con questo modo lo rivela a partire dall'alto (grazie allo 0)
+  const offset = circleCircumference * (remainingTime / totalDuration); // stabilisco la formula
+  timerProgress.style.strokeDashoffset = offset; //la rimando sullo stile!
 
   interval = setInterval(() => {
     remainingTime--;
-  timerText.innerHTML = `${remainingTime}`; // Aggiorna il testo del timer
- const offset = circleCircumference * (remainingTime / totalDuration);
+    timerText.innerHTML = `${remainingTime}`; // Aggiorna il testo del timer
+    const offset = circleCircumference * (remainingTime / totalDuration);
     timerProgress.style.strokeDashoffset = offset;
 
     if (remainingTime === 0) {
