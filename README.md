@@ -31,3 +31,30 @@ Il quarto ed ultimo file HTML, chiamato feedbackPage.html, è la pagina di comme
 8. Inserire un voto da 1 a 10 tramite le apposite stelline
 9. Inserire un eventuale recensione del test
 10. Premere il tasto "TRY AGAIN" e continuare all'infinito
+
+## Tecnologie Utilizzate
+---
+* **HTML:** utilizzato per morfologia e struttura della pagina
+* **CSS:** utilizzato per stilizzare le pagine
+* **JavaScript:** utilizzato le funzioni interattive
+* **SVG (Scalable Vector Graphics):** utilizzato per la creazione delle stelle di valutazione
+* **Chart JS:** utilizzato per la creazione del doughnut chart
+
+## Requisiti del Sistema
+---
+1. Un computer che si accende
+2. Un sistema operativo privo di virus
+3. Connesione ad internet
+4. Browser web (NON SAFARI)
+
+## Licenza
+---
+Questo progetto è distribuito sotto la licenza del TEAM1© Corso full-stack Epicode
+
+## Developers
+---
+Camilla Zicari
+Manuel Palmieri
+Ninfa Carreno
+Tommaso Di Berto Mancini
+Klajdi Kollcaku
