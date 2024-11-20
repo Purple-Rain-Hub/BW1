@@ -14,7 +14,7 @@ Il quarto ed ultimo file HTML, chiamato feedbackPage.html, è la pagina di comme
 
 ## Funzionalità principali
 ---
-* **Domande:** le domande del benchamark, pescate randomicamente, riguardano la programmazione, principalmente a livello teorico.
+* **Domande:** le domande del benchamark, pescate randomicamente e con difficoltà scelta dall'utente, riguardano la programmazione, principalmente a livello teorico.
 * **Risposte:** le risposte possono essere multiple o Vero/Falso e, come le domande, la loro disposizione viene generata randomicamente
 * **Punteggio:** il punteggio verrà visualizzato al completamento del test attraverso un grafico e percentuali.
 * **Feedback:** l'utente potrà valutare la propria esperienza e lasciare una recensione. 
@@ -24,13 +24,14 @@ Il quarto ed ultimo file HTML, chiamato feedbackPage.html, è la pagina di comme
 1. Clonare o scaricare la repository sul proprio computer tramite github
 2. Aprire il file index.html sul proprio browser
 3. Leggere e spuntare la casella ed iniziare il test tramite bottone "PROCEED"
-4. Fai attenzione alle domande e seleziona la risposta che ritieni corretta prima dello scadere del tempo
-5. Clicca il tasto "PROCEED" per passare alla domanda successiva
-6. Dopo l'ultima domanda premere il tasto "GO TO RESULTS"
-7. Visualizzati i risultati del proprio test premere "RATE US"
-8. Inserire un voto da 1 a 10 tramite le apposite stelline
-9. Inserire un eventuale recensione del test
-10. Premere il tasto "TRY AGAIN" e continuare all'infinito
+4. Scegliere la difficoltà desiderata per il test
+5. Fare attenzione alle domande e seleziona la risposta che si ritiene corretta prima dello scadere del tempo
+6. Cliccare il tasto "PROCEED" per passare alla domanda successiva
+7. Dopo l'ultima domanda premere il tasto "GO TO RESULTS"
+8. Visualizzati i risultati del proprio test premere "RATE US"
+9. Inserire un voto da 0 a 10 tramite le apposite stelline
+10. Inserire un eventuale recensione del test
+11. Premere il tasto "TRY AGAIN" e continuare all'infinito
 
 ## Tecnologie Utilizzate
 ---
@@ -55,8 +56,6 @@ Questo progetto è distribuito sotto la licenza del TEAM1© Corso full-stack Epi
 ---
 Camilla Zicari<br />
 Manuel Palmieri<br />
-Ninfa Carreno<br />
+Ninfa Lissette Carreno Jacho<br />
 Tommaso Di Berto Mancini<br />
 Klajdi Kollcaku
-Prima Build Week, TEAM1
-#Benchmark Test 
