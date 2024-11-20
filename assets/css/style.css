@@ -7,8 +7,6 @@
 }
 
 #container {
-  box-sizing: border-box;
-  height: 100%;
   background-image: url(/assets/images/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -20,7 +18,6 @@
   box-sizing: border-box;
   
 }
-
 header {
   display: flex;
   justify-content: space-between;
@@ -39,7 +36,6 @@ footer {
   padding: 5em 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   align-items: center;  /*align content perchè stiamo centrando su un flex-direction column*/  
 }
 
@@ -104,11 +100,11 @@ form {
   cursor: pointer;
 }
 
-.checkbox-container input[type="checkbox"] {
+.checkboxContainer input[type="checkbox"] {
   display: none;
 }
 
-.checkbox-container label {
+.checkboxContainer label {
   position: relative;
   cursor: pointer;
   display: flex;
@@ -129,13 +125,14 @@ form {
   width: 20px;
   height: 20px;
   border: 2px solid #ffffff;
-  background-color: #ffffff00;
+  background-color: transparent;
   transition: background-color 0.3s, border-color 0.3s;
 }
 
 .checkboxContainer input[type="checkbox"]:checked + label::before {
+  content: "✔";
   background-color: #c2128d;
-  border-color: none;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,9 +148,6 @@ form {
   flex: 0 0 auto;
 }
 
-label {
-  padding-left: 2em;
-}
 text {
   font-size: 0.5em;
 }
@@ -187,16 +181,50 @@ text {
   margin: 0.5em;
   height: 6em;
   border-radius: 50px;
-  background-color: rgba(0, 0, 0, 0.297);
+  background: none;
+  outline: none;
   backdrop-filter: blur(8px);
   border: 2px solid rgba(255, 255, 255, 0.279);
   font-size: 1em;
   font-weight: bold;
   cursor: pointer;
   position: relative; /* Necessario per il bordo gradiente con pseudo-elemento */
-  transition: all 0.3s ease; /* Transizioni fluide */
-  z-index: 1;
+  transition: all 0.3s ease; /* Transizioni fluide */  
+}
+
+#options-container button:hover {
+  border-width: 3px; /* Mantenere la larghezza del bordo */
+  color: white; /* Colore del testo invariato */
+  transform: scale(1.05); /* Effetto zoom sul bottone */
+  background-color:#c2128d;
+}
   
+#options-container button::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50px; 
+  padding: 2px; 
+  background:linear-gradient(180deg, rgba(245,245,245,1) 0%, rgba(0,0,0,0.24702380952380953) 100%);
+  mask: /*Using the mask property, we apply two opaque layers. The bottom one will cover the whole element and the top one will cover only the padding box (so it will not cover the border area)*/
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  mask-composite: exclude; 
+}
+
+#options-container button.selected {
+  background-color:#c2128d;
+  padding: 4px; /* Adjust padding for a stronger focus effect */
+}
+
+
+#questionNumber{
+  font-family: "Outfit", sans-serif;
+  letter-spacing: 2px;
+}
+
+.markQuestion{
+  color: #c2128d;
 }
 
 #resultMain {
@@ -309,41 +337,4 @@ text {
 
 .buttonRateUs button a {
   text-decoration: none;
-}
-
-#options-container button:hover {
-  border-width: 3px; /* Mantenere la larghezza del bordo */
-  color: white; /* Colore del testo invariato */
-  transform: scale(1.05); /* Effetto zoom sul bottone */
-  background-color:#c2128d;
-}
-  
-#options-container button::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50px; 
-  padding: 2px; 
-  background:linear-gradient(180deg, rgba(245,245,245,1) 0%, rgba(0,0,0,0.24702380952380953) 100%);
-  mask: /*Using the mask property, we apply two opaque layers. The bottom one will cover the whole element and the top one will cover only the padding box (so it will not cover the border area)*/
-    linear-gradient(#000 0 0) content-box, 
-    linear-gradient(#000 0 0);
-  mask-composite: exclude; 
-}
-
-#options-container button:focus::before {
-  background:linear-gradient(180deg, rgba(245,245,245,1) 0%, rgba(0,0,0,0.24702380952380953) 100%);
-  background-color:#c2128d;
-  padding: 4px; /* Adjust padding for a stronger focus effect */
-  transition: background 0.3s, padding 0.3s; /* Smooth transition for focus effect */
-}
-
-
-#questionNumber{
-  font-family: "Outfit", sans-serif;
-  letter-spacing: 2px;
-}
-
-.markQuestion{
-  color: #c2128d;
 }
