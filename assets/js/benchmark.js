@@ -1,4 +1,4 @@
-const questions = [
+const questionsEasy = [
   {
     category: 'Science: Computers',
     type: 'multiple',
@@ -94,9 +94,130 @@ const questions = [
   },
 ];
 
+const questionsHard = [
+  {
+    type: "multiple",
+    difficulty: "hard",
+    category: "Science: Computers",
+    question: "If you were to code software in this language you&#039;d only be able to type 0&#039;s and 1&#039;s.",
+    correct_answer: "Binary",
+    incorrect_answers: [
+      "JavaScript",
+      "C++",
+      "Python"
+    ]
+  },
+  {
+    type: "multiple",
+    difficulty: "hard",
+    category: "Science: Computers",
+    question: "Which computer language would you associate Django framework with?",
+    correct_answer: "Python",
+    incorrect_answers: [
+      "C#",
+      "C++",
+      "Java"
+    ]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "hard",
+    "category": "Science: Computers",
+    "question": "In computing, what does MIDI stand for?",
+    "correct_answer": "Musical Instrument Digital Interface",
+    "incorrect_answers": [
+      "Musical Interface of Digital Instruments",
+      "Modular Interface of Digital Instruments",
+      "Musical Instrument Data Interface"
+    ]
+  },
+  {
+    type: "multiple",
+    difficulty: "hard",
+    category: "Science: Computers",
+    question: "The programming language &#039;Swift&#039; was created to replace what other programming language?",
+    correct_answer: "Objective-C",
+    incorrect_answers: [
+      "C#",
+      "Ruby",
+      "C++"
+    ]
+  },
+  {
+    type: "boolean",
+    difficulty: "hard",
+    category: "Science: Computers",
+    question: "The Windows ME operating system was released in the year 2000.",
+    correct_answer: "True",
+    incorrect_answers: [
+      "False"
+    ]
+  },
+  {
+    type: "multiple",
+    difficulty: "hard",
+    category: "Science: Computers",
+    question: "Which computer hardware device provides an interface for all other connected devices to communicate?",
+    correct_answer: "Motherboard",
+    incorrect_answers: [
+      "Central Processing Unit",
+      "Hard Disk Drive",
+      "Random Access Memory"
+    ]
+  },
+  {
+    type: "multiple",
+    difficulty: "hard",
+    category: "Science: Computers",
+    question: "Which company was established on April 1st, 1976 by Steve Jobs, Steve Wozniak and Ronald Wayne?",
+    correct_answer: "Apple",
+    incorrect_answers: [
+      "Microsoft",
+      "Atari",
+      "Commodore"
+    ]
+  },
+  {
+    type: "multiple",
+    difficulty: "hard",
+    category: "Science: Computers",
+    question: "In &quot;Hexadecimal&quot;, what color would be displayed from the color code? &quot;#00FF00&quot;?",
+    correct_answer: "Green",
+    incorrect_answers: [
+      "Red",
+      "Blue",
+      "Yellow"
+    ]
+  },
+  {
+    type: "boolean",
+    difficulty: "hard",
+    category: "Science: Computers",
+    question: "&quot;HTML&quot; stands for Hypertext Markup Language.",
+    correct_answer: "True",
+    incorrect_answers: [
+      "False"
+    ]
+  },
+  {
+    type: "boolean",
+    difficulty: "hard",
+    category: "Science: Computers",
+    question: "The NVidia GTX 1080 gets its name because it can only render at a 1920x1080 screen resolution.",
+    correct_answer: "False",
+    incorrect_answers: [
+      "True"
+    ]
+  },
+]
+
 let currentQuestionIndex = 0;
 let score = 0;
 let selectedAnswer = null; // Variabile per memorizzare la risposta selezionata
+let questions;
+let difficultyBtn = document.getElementsByClassName("difficultyBtn");
+const easyBtn = document.getElementById("easyBtn");
+const hardBtn = document.getElementById("hardBtn");
 
 // Funzione per mescolare le domande
 function shuffleQuestions() {
@@ -121,24 +242,23 @@ function showQuestion() {
     <h1 class="questionTitle">${currentQuestion.question}</h1>
     <div id="options-container">
       ${options
-        .map(
-          (option, index) => `
+      .map(
+        (option, index) => `
         
           <button id="option-${index}" onclick="handleAnswerClick('${option}', this)">
             ${option}
           </button>
         
       `
-        )
-        .join('')}
+      )
+      .join('')}
     </div>
     <button id="next-button" onclick="nextQuestion()" disabled>PROCEED</button>
   `;
 
   questionContainer.innerHTML = questionHTML;
-  questionNumber.innerHTML = `QUESTION ${
-    currentQuestionIndex + 1
-  }/<span class="markQuestion">${questions.length}</span>`;
+  questionNumber.innerHTML = `QUESTION ${currentQuestionIndex + 1
+    }/<span class="markQuestion">${questions.length}</span>`;
 }
 
 // Funzione per gestire il clic su un'opzione
@@ -170,7 +290,7 @@ function nextQuestion() {
   // Se ci sono altre domande, mostra la successiva
   if (currentQuestionIndex < questions.length) {
     showQuestion();
-    timer(30, timerProgress); ///timer
+    timer(difficulty, timerProgress); ///timer
   } else {
     // Se tutte le domande sono state risposte, collega alla pagina dei risultati
     showGoToResultsButton();
@@ -207,20 +327,20 @@ function goToResults() {
 }
 
 // Funzione per inizializzare il quiz
-function initQuiz() {
+function startQuiz() {
   shuffleQuestions(); // Mescolare le domande
   showQuestion(); // Mostra la prima domanda
-  timer(30, timerProgress);
+  timer(difficulty, timerProgress);
 }
 
 // Avvia il quiz quando la pagina è caricata
-window.onload = initQuiz;
+window.onload = chooseDifficulty;
 
 const timerProgress = document.getElementById('timerProgress');
 const timerText = document.getElementById('timerText');
 
-const totalDuration = 30; // Durata totale in secondi DA CAMBIRE SE VOGLIAMO UN TIMER DINAMICO. Per farlo devo intercettare la difficoltà della domanda.
-const difficulty = [30, 60]; //if facile 30 else 60
+//const totalDuration = 30; // Durata totale in secondi DA CAMBIRE SE VOGLIAMO UN TIMER DINAMICO. Per farlo devo intercettare la difficoltà della domanda.
+let difficulty; //if facile 30 else 60
 const intervalDuration = 1000; // Intervallo in millisecondi
 const circleCircumference = 2 * Math.PI * 40;
 //TIMER//
@@ -248,4 +368,20 @@ function timer(totalDuration, circle) {
       //e stampa una nuova domanda
     }
   }, intervalDuration);
+}
+
+//funzione init per la scelta della difficoltà
+function chooseDifficulty() {
+  easyBtn.addEventListener("click", function () {
+    questions = questionsEasy;
+    document.getElementById("difficultyContainer").style.display = "none";
+    difficulty = 30;
+    startQuiz();
+  })
+  hardBtn.addEventListener("click", function () {
+    questions = questionsHard;
+    document.getElementById("difficultyContainer").style.display = "none";
+    difficulty = 60;
+    startQuiz();
+  })
 }
