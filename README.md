@@ -18,3 +18,16 @@ Il quarto ed ultimo file HTML, chiamato feedbackPage.html, è la pagina di comme
 * **Risposte:** le risposte possono essere multiple o Vero/Falso e, come le domande, la loro disposizione viene generata randomicamente
 * **Punteggio:** il punteggio verrà visualizzato al completamento del test attraverso un grafico e percentuali.
 * **Feedback:** l'utente potrà valutare la propria esperienza e lasciare una recensione. 
+
+## Guida all'installazione e esecuzione del test
+---
+1. Clonare o scaricare la repository sul proprio computer tramite github
+2. Aprire il file index.html sul proprio browser
+3. Leggere e spuntare la casella ed iniziare il test tramite bottone "PROCEED"
+4. Fai attenzione alle domande e seleziona la risposta che ritieni corretta prima dello scadere del tempo
+5. Clicca il tasto "PROCEED" per passare alla domanda successiva
+6. Dopo l'ultima domanda premere il tasto "GO TO RESULTS"
+7. Visualizzati i risultati del proprio test premere "RATE US"
+8. Inserire un voto da 1 a 10 tramite le apposite stelline
+9. Inserire un eventuale recensione del test
+10. Premere il tasto "TRY AGAIN" e continuare all'infinito
