@@ -253,7 +253,7 @@ function showQuestion() {
       )
       .join('')}
     </div>
-    <button id="next-button" onclick="nextQuestion()" disabled>PROCEED</button>
+    <button id="next-button" class="blueBtn" onclick="nextQuestion()" disabled>PROCEED</button>
   `;
 
   questionContainer.innerHTML = questionHTML;
@@ -314,7 +314,7 @@ function showGoToResultsButton() {
   // Sostituisce il contenuto con il messaggio finale
   questionContainer.innerHTML = `
               <h1 class='finalTitle'>Scopri i tuoi risultati!</h1>
-        <button class='blueBtn' onclick="goToResults()">GO TO RESULT</button>
+        <button class='blueBtn centerBtn' onclick="goToResults()">GO TO RESULT</button>
           `;
   clearInterval(interval);
   timerContainer.innerText = '';
