@@ -143,12 +143,15 @@ function showQuestion() {
 
 // Funzione per gestire il clic su un'opzione
 function handleAnswerClick(answer, buttonElement) {
+  // Toglie la classe selected ai bottoni precedentemente selezionati
+  const buttons = document.querySelectorAll('#options-container button');
+  buttons.forEach((button) => button.classList.remove('selected'));
   // Evidenzia la risposta selezionata
-  buttonElement.classList.add("selected");
+  buttonElement.classList.add('selected');
   selectedAnswer = answer;
 
   // Abilita il bottone "Prossima domanda" se una risposta è selezionata
-  document.getElementById("next-button").disabled = false;
+  document.getElementById('next-button').disabled = false;
 }
 
 // Funzione per passare alla domanda successiva
