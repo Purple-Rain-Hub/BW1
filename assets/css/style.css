@@ -11,10 +11,16 @@
   background-repeat: no-repeat;
   background-size: cover;
   padding: 2em 5em;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  
 }
-
 header {
-  margin-bottom: 3em;
+  display: flex;
+  justify-content: space-between;
 }
 header img {
   width: 15%;
@@ -23,4 +29,340 @@ header img {
 h1 {
   font-family: "Outfit", sans-serif;
   font-size: 2em;
+}
+main,
+footer {
+  width: 100%;
+  padding: 5em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /*align content perchè stiamo centrando su un flex-direction column*/  
+}
+
+.mainIndex{
+  align-items: flex-start;
+}
+
+.welcomeContainer {
+  width: 50%;
+  margin-bottom: 1em;  
+}
+
+.welcomeContainer h1 {
+  font-size: 5em;
+  margin-bottom: 2.5rem;
+  line-height: 0.8;
+}
+
+.welcomeContainer h2 {
+  font-family: "Outfit", sans-serif;
+  color: #c2128d;
+  font-weight: bold;
+  font-size: 1.9em;
+  margin-bottom: 10px;
+}
+
+strong,
+b {
+  font-weight: bold;
+}
+
+ul {
+  padding: 1.5em;
+  margin-bottom: 4.5em;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+form {
+  position: relative;
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#btnWelcomeProceed, #next-button, #resultsButton  {
+  background-color: #00ffff;
+  border: none;
+  padding: 0.8em 3em;
+  font-size: 1.5em;
+  box-shadow: 0px 0px 55px -16px #00ffff;
+  margin-right: 1em;
+  font-family: "Outfit", sans-serif;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.checkboxContainer input[type="checkbox"] {
+  display: none;
+}
+
+.checkboxContainer label {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  padding-left: 2.5rem;
+  line-height: 1.2;
+  user-select: none;
+  margin-bottom: 1rem;
+}
+
+.checkboxContainer label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ffffff;
+  background-color: transparent;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.checkboxContainer input[type="checkbox"]:checked + label::before {
+  content: "✔";
+  background-color: #c2128d;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#errorCheck {
+  color: #c2128d;
+
+  padding-left: 2.4rem;
+}
+
+#timer {
+  flex: 0 0 auto;
+}
+
+text {
+  font-size: 0.5em;
+}
+.staticTextTimer {
+  color: #e7e7eb;
+}
+#timerText {
+  font-size: 1.2rem;
+}
+
+.questionTitle {
+  font-size: 3em;
+  max-width: 45%;
+  justify-self: center;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+#questionContainer {
+  padding: 1em 0;
+}
+#options-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2em;
+  width: 80%;
+}
+#options-container button {
+  width: 35%;
+  margin: 0.5em;
+  height: 6em;
+  border-radius: 50px;
+  background: none;
+  outline: none;
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.279);
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative; /* Necessario per il bordo gradiente con pseudo-elemento */
+  transition: all 0.3s ease; /* Transizioni fluide */  
+}
+
+#options-container button:hover {
+  border-width: 3px; /* Mantenere la larghezza del bordo */
+  color: white; /* Colore del testo invariato */
+  transform: scale(1.05); /* Effetto zoom sul bottone */
+  background-color:#c2128d;
+}
+  
+#options-container button::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50px; 
+  padding: 2px; 
+  background:linear-gradient(180deg, rgba(245,245,245,1) 0%, rgba(0,0,0,0.24702380952380953) 100%);
+  mask: /*Using the mask property, we apply two opaque layers. The bottom one will cover the whole element and the top one will cover only the padding box (so it will not cover the border area)*/
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  mask-composite: exclude; 
+}
+
+#options-container button.selected {
+  background-color:#c2128d;
+  padding: 4px; /* Adjust padding for a stronger focus effect */
+}
+
+
+#questionNumber{
+  font-family: "Outfit", sans-serif;
+  letter-spacing: 2px;
+}
+
+.markQuestion{
+  color: #c2128d;
+}
+
+#resultMain {
+  padding-top: 1.8em;
+}
+.chartContainer {
+  position: relative;
+  display: inline-block;
+}
+
+#chartText {
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.resultHeadings {
+  font-family: "Outfit", sans-serif;
+  text-align: center;
+  margin-bottom: 2.5em;
+  line-height: 1.1;
+}
+
+.resultHeadings h1 {
+  font-weight: 600;
+  font-size: 3em;
+}
+
+.resultHeadings h2 {
+  font-size: 1.6em;
+  font-weight: 300;
+}
+
+.padreProva {
+  font-family: "Outfit", sans-serif;
+  width: 100%;
+  display: flex;
+  margin-bottom: 3em;
+}
+
+.provaText1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%;
+}
+
+.provaText2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 30%;
+}
+
+.provaChart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+}
+
+.provaText1 h4, .provaText2 h4, #correctPercentage, #wrongPercentage {
+  font-size: 3em;
+}
+
+#correctPercentage, #wrongPercentage {
+  font-size: 3em;
+  font-weight: 700;
+}
+
+#correctQuestions, #wrongQuestions {
+  font-weight: 200;
+  line-height: 1.5;
+}
+
+.correctAnswers {
+  color: #01ffff;
+}
+
+.wrongAnswers {
+  color: #c2138d;
+}
+
+#chartText h3 {
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+#chartText>p:last-child {
+  padding: 15px;
+  font-weight: lighter;
+  font-size: 0.6em;
+  line-height: 1.3;
+}
+
+.buttonRateUs button {
+  width: 11em;
+  height: 3em;
+  background-color: transparent;
+  border-color: white;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  font-size: larger;
+}
+
+.buttonRateUs button a {
+  text-decoration: none;
+}
+
+/* MAGIA DELLE STELLINE*/
+
+/* filter per colorare di grigio le stelle inizialmente*/
+.star {
+  filter: invert(100%) sepia(97%) saturate(13%) hue-rotate(237deg)
+    brightness(104%) contrast(104%);
+}
+
+/*CSS FEEDBACK PAGE*/
+#feedbackTitle {
+  font-size: 3em;
+  font-weight: bolder;
+  padding: 2%;
+}
+
+#containerFeedback:not(header) {
+  text-align: center;
+}
+
+#containerFeedback main p{
+  font-size: 170%;
+  padding: 2%;
+}
+
+#containerFeedback aside p{
+  font-size: 170%;
+  padding: 2%;
 }
