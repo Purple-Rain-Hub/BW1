@@ -39,15 +39,20 @@ footer {
   align-items: center;  /*align content perchè stiamo centrando su un flex-direction column*/  
 }
 
+.mainIndex{
+  align-items: flex-start;
+}
+
 .welcomeContainer {
   width: 50%;
-  margin-bottom: 1em;
+  margin-bottom: 1em;  
 }
 
 .welcomeContainer h1 {
   font-size: 5em;
   margin-bottom: 2.5rem;
   line-height: 0.8;
+  align-self: ;
 }
 
 .welcomeContainer h2 {
@@ -56,10 +61,6 @@ footer {
   font-weight: bold;
   font-size: 1.9em;
   margin-bottom: 10px;
-}
-
-.welcomeContainer {
-  line-height: 1.2;
 }
 
 strong,
@@ -79,6 +80,9 @@ ul li {
 form {
   position: relative;
   margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 #btnWelcomeProceed, #next-button  {
@@ -109,6 +113,7 @@ form {
   padding-left: 2.5rem;
   line-height: 1.2;
   user-select: none;
+  margin-bottom: 1rem;
 }
 
 .checkboxContainer label::before {
@@ -134,8 +139,9 @@ form {
 }
 
 #errorCheck {
-  padding-left: 2.8rem;
   color: #c2128d;
+
+  padding-left: 2.4rem;
 }
 
 #timer {
@@ -194,7 +200,7 @@ text {
   background-color:#c2128d;
 }
   
-#options-container button::before {
+#options-container button::before{
   content: "";
   position: absolute;
   inset: 0;
@@ -206,6 +212,14 @@ text {
     linear-gradient(#000 0 0);
   mask-composite: exclude; 
 }
+
+#options-container button:focus::before {
+  background:linear-gradient(180deg, rgba(245,245,245,1) 0%, rgba(0,0,0,0.24702380952380953) 100%);
+  background-color:#c2128d;
+  padding: 4px; /* Adjust padding for a stronger focus effect */
+  transition: background 0.3s, padding 0.3s; /* Smooth transition for focus effect */
+}
+
 
 #questionNumber{
   font-family: "Outfit", sans-serif;
