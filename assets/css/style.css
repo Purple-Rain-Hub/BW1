@@ -181,16 +181,15 @@ text {
   margin: 0.5em;
   height: 6em;
   border-radius: 50px;
-  background-color: rgba(0, 0, 0, 0.297);
+  background: none;
+  outline: none;
   backdrop-filter: blur(8px);
   border: 2px solid rgba(255, 255, 255, 0.279);
   font-size: 1em;
   font-weight: bold;
   cursor: pointer;
   position: relative; /* Necessario per il bordo gradiente con pseudo-elemento */
-  transition: all 0.3s ease; /* Transizioni fluide */
-  z-index: 1;
-  
+  transition: all 0.3s ease; /* Transizioni fluide */  
 }
 
 #options-container button:hover {
@@ -213,11 +212,9 @@ text {
   mask-composite: exclude; 
 }
 
-#options-container button:focus::before {
-  background:linear-gradient(180deg, rgba(245,245,245,1) 0%, rgba(0,0,0,0.24702380952380953) 100%);
+#options-container button.selected {
   background-color:#c2128d;
   padding: 4px; /* Adjust padding for a stronger focus effect */
-  transition: background 0.3s, padding 0.3s; /* Smooth transition for focus effect */
 }
 
 
@@ -228,4 +225,116 @@ text {
 
 .markQuestion{
   color: #c2128d;
+}
+
+#resultMain {
+  padding-top: 1.8em;
+}
+.chartContainer {
+  position: relative;
+  display: inline-block;
+}
+
+#chartText {
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.resultHeadings {
+  font-family: "Outfit", sans-serif;
+  text-align: center;
+  margin-bottom: 2.5em;
+  line-height: 1.1;
+}
+
+.resultHeadings h1 {
+  font-weight: 600;
+  font-size: 3em;
+}
+
+.resultHeadings h2 {
+  font-size: 1.6em;
+  font-weight: 300;
+}
+
+.padreProva {
+  font-family: "Outfit", sans-serif;
+  width: 100%;
+  display: flex;
+  margin-bottom: 3em;
+}
+
+.provaText1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 30%;
+}
+
+.provaText2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 30%;
+}
+
+.provaChart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+}
+
+.provaText1 h4, .provaText2 h4, #correctPercentage, #wrongPercentage {
+  font-size: 3em;
+}
+
+#correctPercentage, #wrongPercentage {
+  font-size: 3em;
+  font-weight: 700;
+}
+
+#correctQuestions, #wrongQuestions {
+  font-weight: 200;
+  line-height: 1.5;
+}
+
+.correctAnswers {
+  color: #01ffff;
+}
+
+.wrongAnswers {
+  color: #c2138d;
+}
+
+#chartText h3 {
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+#chartText>p:last-child {
+  padding: 15px;
+  font-weight: lighter;
+  font-size: 0.6em;
+  line-height: 1.3;
+}
+
+.buttonRateUs button {
+  width: 11em;
+  height: 3em;
+  background-color: transparent;
+  border-color: white;
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  font-size: larger;
+}
+
+.buttonRateUs button a {
+  text-decoration: none;
 }
