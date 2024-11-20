@@ -55,7 +55,7 @@ new Chart(resultChart, {
 }
 
 const results = calcolateResults();
-createChart(results.correctAnswers, results.wrongAnswers);
+createChart(results.wrongAnswers, results.correctAnswers);
 
 function textInChart() {
     if (results.correctAnswers>results.wrongAnswers) {
