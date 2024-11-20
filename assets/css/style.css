@@ -168,14 +168,14 @@ text {
 #questionContainer {
   padding: 1em 0;
 }
-#options-container {
+#options-container, #difficultyContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 2em;
   width: 80%;
 }
-#options-container button {
+#options-container button, #difficultyContainer button {
   width: 35%;
   margin: 0.5em;
   height: 6em;
@@ -191,14 +191,14 @@ text {
   transition: all 0.3s ease; /* Transizioni fluide */  
 }
 
-#options-container button:hover {
+#options-container button:hover, #difficultyContainer button:hover{
   border-width: 3px; /* Mantenere la larghezza del bordo */
   color: white; /* Colore del testo invariato */
   transform: scale(1.05); /* Effetto zoom sul bottone */
   background-color:#c2128d;
 }
   
-#options-container button::before{
+#options-container button::before, #difficultyContainer button::before{
   content: "";
   position: absolute;
   inset: 0;
@@ -211,7 +211,7 @@ text {
   mask-composite: exclude; 
 }
 
-#options-container button.selected {
+#options-container button.selected, #difficultyContainer button.selected{
   background-color:#c2128d;
   padding: 4px; /* Adjust padding for a stronger focus effect */
 }
