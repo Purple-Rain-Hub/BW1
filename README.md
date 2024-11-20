@@ -11,3 +11,10 @@ Nel primo file HTML, chiamato index.html, è contenuta la prima pagina introdutt
 Nel secondo file HTML, chiamato benchmark.html, è contenuta la seconda pagina del benchmark in cui sono presenti le domande a risposta multipla e il timer ad orologio, alla cui scadenza, nel caso in cui non venga selezionata alcuna scelta, la domanda sarà considerata sbagliata e si passerà alla successiva. Invece, nel caso in cui, si effettui una scelta senza procedere attraverso il bottone, allo scadere del timer la risposta verrà comunque salvata. Anche qui un file JS si occupa di tutte le funzionalità e dell'esperienza utente, salvando inoltre le risposte selezionate in un local storage, così che possano essere visualizzate nella successiva pagina dei risultati.<br />
 Nel terzo file HTML, chiamato result.html, è contenuta la terza pagina del benchmark dove l'utente potrà visualizzare un chart con le percentuali sbagliate e corrette del suo test e rispettivo numero di risposte sbagliate e corrette. Il file JS collegato a questa pagina si occupa di recuperare le risposte dell'utente salvate nel local storage e di tradurle nelle statistiche e nel doughnut chart.<br />
 Il quarto ed ultimo file HTML, chiamato feedbackPage.html, è la pagina di commento e valutazione dell'applicazione e della sua esperienza utente. Il file JS è stato utilizzato per rendere dinamiche le stelline della valutazione, in modo che siano responsive a qualsiasi input dell'utente.<br />
+
+## Funzionalità principali
+---
+* **Domande:** le domande del benchamark, pescate randomicamente, riguardano la programmazione, principalmente a livello teorico.
+* **Risposte:** le risposte possono essere multiple o Vero/Falso e, come le domande, la loro disposizione viene generata randomicamente
+* **Punteggio:** il punteggio verrà visualizzato al completamento del test attraverso un grafico e percentuali.
+* **Feedback:** l'utente potrà valutare la propria esperienza e lasciare una recensione. 
