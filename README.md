@@ -40,7 +40,7 @@ Il quarto ed ultimo file HTML, chiamato feedbackPage.html, è la pagina di comme
 * **SVG (Scalable Vector Graphics):** utilizzato per la creazione delle stelle di valutazione
 * **Chart JS:** utilizzato per la creazione del doughnut chart
 
-## Requisiti del Sistema
+## Requisiti di Sistema
 ---
 1. Un computer che si accende
 2. Un sistema operativo privo di virus
