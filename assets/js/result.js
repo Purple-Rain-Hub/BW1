@@ -38,7 +38,7 @@ new Chart(resultChart, {
     ],
   },
   options: { //impostazioni del grafico
-    rotation: Math.PI, //fa girare il grafico in senso orario in modo da vedere wrong e correct nel lato giusto
+    rotation: 0, //fa girare il grafico in senso orario in modo da vedere wrong e correct nel lato giusto
     responsive: false, //rende il grafico adattabile ad ogni tipo di schermo
     maintainAspectRatio: false,
     cutout: '72%',
