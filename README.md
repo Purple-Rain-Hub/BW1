@@ -53,8 +53,8 @@ Questo progetto è distribuito sotto la licenza del TEAM1© Corso full-stack Epi
 
 ## Developers
 ---
-Camilla Zicari
-Manuel Palmieri
-Ninfa Carreno
-Tommaso Di Berto Mancini
+Camilla Zicari<br />
+Manuel Palmieri<br />
+Ninfa Carreno<br />
+Tommaso Di Berto Mancini<br />
 Klajdi Kollcaku
