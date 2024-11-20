@@ -358,18 +358,32 @@ text {
 
 .wrongAnswers {
   color: #c2138d;
+  font-size: 3em;
+}
+
+#chartText {
+  max-width: 50%;
 }
 
 #chartText h3 {
+  font-size: 1.2em;
   font-weight: 500;
   line-height: 1.5;
 }
 
 #chartText > p:last-child {
-  padding: 15px;
   font-weight: lighter;
-  font-size: 0.6em;
+  font-size: 0.8em;
   line-height: 1.3;
+}
+
+#correctAnswers {
+  color: #01ffff;
+}
+
+#chartText #wrongAnswers {
+  color: #c2138d;
+  font-size: 1.2em;
 }
 
 .buttonRateUs button {

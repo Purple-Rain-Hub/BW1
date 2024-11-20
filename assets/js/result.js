@@ -59,9 +59,9 @@ createChart(results.wrongAnswers, results.correctAnswers);
 
 function textInChart() {
     if (results.correctAnswers>results.wrongAnswers) {
-        return chartText.innerHTML = `<h3>Congratulations!</h3><p class="correctAnswers">You passed the exam.</p><br/><p>We'll send you the certificate in few minutes. <br/> Check your email (including promotions / spam folder)</p>`
+        return chartText.innerHTML = `<h3>Congratulations!</h3><p id="correctAnswers">You passed the exam.</p><br/><p>We'll send you the certificate in few minutes. <br/> Check your email (including promotions / spam folder)</p>`
     } else {
-        return chartText.innerHTML = `<h3>Try Again!</h3><p class="wrongAnswers">You failed the exam</p>`
+        return chartText.innerHTML = `<h3>Try Again!</h3><p id="wrongAnswers">You failed the exam</p>`
     }
 }
 textInChart();
