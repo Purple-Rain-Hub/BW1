@@ -313,7 +313,7 @@ function showGoToResultsButton() {
 
   // Sostituisce il contenuto con il messaggio finale
   questionContainer.innerHTML = `
-              <h1 class='finalTitle'>Scopri i tuoi risultati!</h1>
+              <h1 class='finalTitle'>Congratulations!<br/> You have completed the exam.</h1>
         <button class='blueBtn centerBtn' onclick="goToResults()">GO TO RESULT</button>
           `;
   clearInterval(interval);

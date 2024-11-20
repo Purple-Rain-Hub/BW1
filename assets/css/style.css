@@ -12,11 +12,16 @@
   background-size: cover;
   padding: 2em 5em;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
 }
+
+main {
+  height: 100vh;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -32,7 +37,6 @@ h1 {
 main,
 footer {
   width: 100%;
-  padding: 2.5em 0;
   display: flex;
   flex-direction: column;
   align-items: center; /*align content perchè stiamo centrando su un flex-direction column*/
@@ -40,6 +44,7 @@ footer {
 
 .mainIndex {
   align-items: flex-start;
+  justify-content: center;
 }
 
 .welcomeContainer {
@@ -89,7 +94,6 @@ form {
   padding: 0.8em 3em;
   font-size: 1.5em;
   box-shadow: 0px 0px 55px -16px #00ffff;
-  margin-right: 1em;
   font-family: "Outfit", sans-serif;
   color: black;
   text-decoration: none;
@@ -151,10 +155,6 @@ form {
   padding-left: 2.4rem;
 }
 
-#timer {
-  flex: 0 0 auto;
-}
-
 text {
   font-size: 0.5em;
 }
@@ -166,15 +166,18 @@ text {
 }
 
 .questionTitle {
-  font-size: 3em;
-  max-width: 45%;
+  font-size: 2.5em;
+  max-width: 60%;
   justify-self: center;
   margin-bottom: 1em;
   text-align: center;
+  line-height: 1.2;
 }
 
 #questionContainer {
-  padding: 1em 0;
+  justify-content: flex-start;
+  height: 70%;
+  box-sizing: border-box;
 }
 
 #difficultyContainer {
@@ -182,13 +185,14 @@ text {
   flex-direction: column;
   width: 100%;
   align-items: center;
-  padding-top: 8%;
 }
 
-#difficultyContainer h1{
+#difficultyContainer h1, .finalTitle {
+  text-align: center;
   font-size: 4em;
   font-weight: bold;
   margin-bottom: 1em;
+  margin-top: 1.5em;
 }
 
 #options-container {
@@ -214,6 +218,7 @@ text {
   cursor: pointer;
   position: relative; /* Necessario per il bordo gradiente con pseudo-elemento */
   transition: all 0.3s ease; /* Transizioni fluide */
+  padding: 5px;
 }
 
 #options-container button:hover,
@@ -264,7 +269,8 @@ text {
 }
 
 #resultMain {
-  padding-top: 1.8em;
+ display: flex;
+ justify-content: center;
 }
 .chartContainer {
   position: relative;
@@ -299,7 +305,7 @@ text {
 
 .padreProva {
   font-family: "Outfit", sans-serif;
-  width: 100%;
+  width: 85%;
   display: flex;
   margin-bottom: 3em;
 }
