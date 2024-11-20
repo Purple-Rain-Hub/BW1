@@ -144,14 +144,14 @@ function showQuestion() {
 // Funzione per gestire il clic su un'opzione
 function handleAnswerClick(answer, buttonElement) {
   // Toglie la classe selected ai bottoni precedentemente selezionati
-  const buttons = document.querySelectorAll('#options-container button');
-  buttons.forEach((button) => button.classList.remove('selected'));
+  const buttons = document.querySelectorAll("#options-container button");
+  buttons.forEach((button) => button.classList.remove("selected"));
   // Evidenzia la risposta selezionata
-  buttonElement.classList.add('selected');
+  buttonElement.classList.add("selected");
   selectedAnswer = answer;
 
   // Abilita il bottone "Prossima domanda" se una risposta è selezionata
-  document.getElementById('next-button').disabled = false;
+  document.getElementById("next-button").disabled = false;
 }
 
 // Funzione per passare alla domanda successiva
@@ -176,6 +176,7 @@ function nextQuestion() {
     showGoToResultsButton();
     clearInterval(interval);
     timerEnd();
+    disableOption();
   }
 }
 
@@ -198,7 +199,7 @@ function timerEnd() {
   const questionText = document.getElementById("questionText");
   questionText.innerHTML = `<tspan class="staticTextTimer" x="50" dy="-5"> COMPLIMENTI!</tspan>      
                           <tspan class="staticTextTimer"x="50" dy="10">HAI FINITO!</tspan>`;
-  
+
   const offset = circleCircumference; // stabilisco la formula
   timerProgress.style.strokeDashoffset = offset;
 }
@@ -208,6 +209,15 @@ function initQuiz() {
   shuffleQuestions(); // Mescolare le domande
   showQuestion(); // Mostra la prima domanda
   timer(30, timerProgress);
+}
+
+function disableOption() {
+  let btnOptions = document.querySelectorAll("button:not(#next-button)");
+  
+  btnOptions.forEach(btn => {
+    btn.classList.remove("click");
+    btn.disabled = true;
+  });
 }
 
 // Avvia il quiz quando la pagina è caricata
