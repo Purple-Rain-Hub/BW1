@@ -4,45 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>result page</title>
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <div id="container">
       <header>
         <!-- LOGO -->
-        <img src="assets/images/epicode_logo.png" alt="logo epicode" id="logo"/>
+        <img
+          src="assets/images/epicode_logo.png"
+          alt="logo epicode"
+          id="logo"
+        />
       </header>
-      <main>
-        <div>
+      <main id="resultMain">
+        <div class="resultHeadings">
           <!-- TITOLO -->
           <h1>Results</h1>
           <!-- SOTTOTITOLO -->
-          <h2>The summary of your answers</h2>
+          <h2>The summary of your answers:</h2>
         </div>
-        <div>
-          <!-- RISPOSTE CORRETTE -->
-          <p>Correct</p>
-          <p id="correctAnswers"></p>
+        <div class="padreProva">
+          <div class="provaText1">
+            <!-- CORRECT ANS -->
+             <h4>Correct</h4>
+             <p id="correctPercentage"></p>
+             <p id="correctQuestions"></p>
+          </div>
+          <div class="chartContainer provaChart">
+            <!-- CHART -->
+            <canvas width="300" height="300" id="resultChart"></canvas>
+            <div id="chartText">
+              <!-- RISULTATO POSITIVO/NEGATIVO DINAMICO -->
+            </div>
+          </div>
+          <div class="provaText2">
+            <!-- WRONG ANS -->
+             <h4>Wrong</h4>
+             <p id="wrongPercentage"></p>
+             <p id="wrongQuestions"></p>
+          </div>
         </div>
-        <div>
-          <!-- CHARSET -->
-        </div>
-        <div>
-          <!-- RISPOSTE SBAGLIATE -->
-          <p>Wrong</p>
-          <p id="wrongAnswers"></p>
-        </div>
-        <div>
+        <div class="buttonRateUs">
           <!-- BOTTONE -->
-          <button type="button" id="btnRateUs"><a>RATE US</a></button> <!-- link per pagina 4 -->
+          <button type="button" id="btnRateUs"><a href="feedbackPage.html">RATE US</a></button>
+          <!-- link per pagina 4 -->
         </div>
       </main>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/result.js"></script>
   </body>
 </html>
