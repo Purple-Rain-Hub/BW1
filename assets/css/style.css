@@ -1,4 +1,4 @@
-* {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -163,14 +163,34 @@ text {
 
 #containerFeedback:not(header) {
   text-align: center;
+  
 }
 
 #containerFeedback main p{
   font-size: 170%;
   padding: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 45%;
+  
 }
 
-#containerFeedback aside p{
-  font-size: 170%;
-  padding: 2%;
+#inputFeedback {
+  background: transparent;
+  border: none;
+  font-size: large;
+  width: 35%;
+  margin-bottom: 0.5%;
 }
+
+#containerFeedback hr{
+  margin-left: auto;
+  margin-right: auto;
+  width: 45%;
+  border: 1px solid #c2128d;
+}
+
+.starsDiv{
+  margin-bottom: 2%;
+}
+
