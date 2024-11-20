@@ -84,7 +84,7 @@ form {
   justify-content: space-between;
 }
 
-#btnWelcomeProceed, #next-button  {
+#btnWelcomeProceed, #next-button, #resultsButton  {
   background-color: #00ffff;
   border: none;
   padding: 0.8em 3em;

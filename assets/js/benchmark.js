@@ -118,22 +118,22 @@ function showQuestion() {
 
   // Mark up domande e risposte
   const questionHTML = `
-  <h1 class="questionTitle">${currentQuestion.question}</h1>
-  <div id="options-container">
-    ${options
-      .map(
-        (option, index) => `
-      
-        <button id="option-${index}" onclick="handleAnswerClick('${option}', this)">
-          ${option}
-        </button>
-      
-    `
-      )
-      .join('')}
-  </div>
-  <button id="next-button" onclick="nextQuestion()" disabled>PROCEED</button>
-`;
+    <h1 class="questionTitle">${currentQuestion.question}</h1>
+    <div id="options-container">
+      ${options
+        .map(
+          (option, index) => `
+        
+          <button id="option-${index}" onclick="handleAnswerClick('${option}', this)">
+            ${option}
+          </button>
+        
+      `
+        )
+        .join('')}
+    </div>
+    <button id="next-button" onclick="nextQuestion()" disabled>PROCEED</button>
+  `;
 
   questionContainer.innerHTML = questionHTML;
   questionNumber.innerHTML = `QUESTION ${
@@ -174,7 +174,6 @@ function nextQuestion() {
   } else {
     // Se tutte le domande sono state risposte, collega alla pagina dei risultati
     showGoToResultsButton();
-    clearInterval(interval);
   }
 }
 
@@ -186,11 +185,25 @@ function saveAnswer(questionIndex, isCorrect) {
 }
 // Funzione per andare ai risultati
 function showGoToResultsButton() {
-  const nextButton = document.getElementById('next-button');
-  nextButton.innerText = 'GO TO RESULTS';
-  nextButton.onclick = function () {
-    location.href = 'result.html';
-  };
+  const questionContainer = document.getElementById('questionContainer');
+  const questionNumber = document.getElementById('questionNumber');
+
+  // Rimuove il numero della domanda
+  questionNumber.innerHTML = '';
+
+  // Sostituisce il contenuto con il messaggio finale
+  questionContainer.innerHTML = `
+              <h1 class='finalTitle'>Scopri i tuoi risultati!</h1>
+        <button class='blueBtn' onclick="goToResults()">GO TO RESULT</button>
+          `;
+  clearInterval(interval);
+  const timerContainer = document.getElementById('timer');
+  timerContainer.innerText = '';
+}
+
+// Funzione per andare alla pagina dei risultati
+function goToResults() {
+  location.href = 'result.html';
 }
 
 // Funzione per inizializzare il quiz
@@ -209,13 +222,12 @@ const timerText = document.getElementById('timerText');
 const totalDuration = 30; // Durata totale in secondi DA CAMBIRE SE VOGLIAMO UN TIMER DINAMICO. Per farlo devo intercettare la difficoltà della domanda.
 const difficulty = [30, 60]; //if facile 30 else 60
 const intervalDuration = 1000; // Intervallo in millisecondi
-
+const circleCircumference = 2 * Math.PI * 40;
 //TIMER//
 let interval;
 
 function timer(totalDuration, circle) {
   let remainingTime = totalDuration;
-  const circleCircumference = 2 * Math.PI * 40;
   // Circonferenza del cerchio (2 * π * r)
   clearInterval(interval); //pulisce il timer prima di iniziarne uno nuovo
 
