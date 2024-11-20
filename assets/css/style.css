@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,7 +16,6 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  
 }
 header {
   display: flex;
@@ -36,16 +35,16 @@ footer {
   padding: 5em 0;
   display: flex;
   flex-direction: column;
-  align-items: center;  /*align content perchè stiamo centrando su un flex-direction column*/  
+  align-items: center; /*align content perchè stiamo centrando su un flex-direction column*/
 }
 
-.mainIndex{
+.mainIndex {
   align-items: flex-start;
 }
 
 .welcomeContainer {
   width: 50%;
-  margin-bottom: 1em;  
+  margin-bottom: 1em;
 }
 
 .welcomeContainer h1 {
@@ -84,7 +83,9 @@ form {
   justify-content: space-between;
 }
 
-#btnWelcomeProceed, #next-button, #resultsButton  {
+#btnWelcomeProceed,
+#next-button,
+#resultsButton {
   background-color: #00ffff;
   border: none;
   padding: 0.8em 3em;
@@ -168,14 +169,31 @@ text {
 #questionContainer {
   padding: 1em 0;
 }
-#options-container, #difficultyContainer {
+
+#difficultyContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding-top: 8%;
+}
+
+#difficultyContainer h1{
+  font-size: 4em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+#options-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 2em;
   width: 80%;
 }
-#options-container button, #difficultyContainer button {
+
+#options-container button,
+#difficultyContainer button {
   width: 35%;
   margin: 0.5em;
   height: 6em;
@@ -188,41 +206,53 @@ text {
   font-weight: bold;
   cursor: pointer;
   position: relative; /* Necessario per il bordo gradiente con pseudo-elemento */
-  transition: all 0.3s ease; /* Transizioni fluide */  
+  transition: all 0.3s ease; /* Transizioni fluide */
 }
 
-#options-container button:hover, #difficultyContainer button:hover{
+#options-container button:hover,
+#difficultyContainer button:hover {
   border-width: 3px; /* Mantenere la larghezza del bordo */
   color: white; /* Colore del testo invariato */
   transform: scale(1.05); /* Effetto zoom sul bottone */
-  background-color:#c2128d;
+  background-color: #c2128d;
 }
-  
-#options-container button::before, #difficultyContainer button::before{
+
+#options-container button::before,
+#difficultyContainer button::before {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 50px; 
-  padding: 2px; 
-  background:linear-gradient(180deg, rgba(245,245,245,1) 0%, rgba(0,0,0,0.24702380952380953) 100%);
-  mask: /*Using the mask property, we apply two opaque layers. The bottom one will cover the whole element and the top one will cover only the padding box (so it will not cover the border area)*/
-    linear-gradient(#000 0 0) content-box, 
+  border-radius: 50px;
+  padding: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(245, 245, 245, 1) 0%,
+    rgba(0, 0, 0, 0.24702380952380953) 100%
+  );
+  mask: /*Using the mask property, we apply two opaque layers. The bottom one will cover the whole element and the top one will cover only the padding box (so it will not cover the border area)*/ linear-gradient(
+        #000 0 0
+      )
+      content-box,
     linear-gradient(#000 0 0);
-  mask-composite: exclude; 
+  mask-composite: exclude;
 }
 
-#options-container button.selected, #difficultyContainer button.selected{
-  background-color:#c2128d;
+#options-container button.selected,
+#difficultyContainer button.selected {
+  background-color: #c2128d;
   padding: 4px; /* Adjust padding for a stronger focus effect */
 }
 
+#difficultyContainer button{
+  font-size: 1.5em;
+}
 
-#questionNumber{
+#questionNumber {
   font-family: "Outfit", sans-serif;
   letter-spacing: 2px;
 }
 
-.markQuestion{
+.markQuestion {
   color: #c2128d;
 }
 
@@ -290,16 +320,21 @@ text {
   width: 40%;
 }
 
-.provaText1 h4, .provaText2 h4, #correctPercentage, #wrongPercentage {
+.provaText1 h4,
+.provaText2 h4,
+#correctPercentage,
+#wrongPercentage {
   font-size: 3em;
 }
 
-#correctPercentage, #wrongPercentage {
+#correctPercentage,
+#wrongPercentage {
   font-size: 3em;
   font-weight: 700;
 }
 
-#correctQuestions, #wrongQuestions {
+#correctQuestions,
+#wrongQuestions {
   font-weight: 200;
   line-height: 1.5;
 }
@@ -317,7 +352,7 @@ text {
   line-height: 1.5;
 }
 
-#chartText>p:last-child {
+#chartText > p:last-child {
   padding: 15px;
   font-weight: lighter;
   font-size: 0.6em;
@@ -355,16 +390,14 @@ text {
 
 #containerFeedback:not(header) {
   text-align: center;
-  
 }
 
-#containerFeedback main p{
+#containerFeedback main p {
   font-size: 170%;
   padding: 2%;
   margin-left: auto;
   margin-right: auto;
   width: 45%;
-  
 }
 
 #inputFeedback {
@@ -375,14 +408,13 @@ text {
   margin-bottom: 0.5%;
 }
 
-#containerFeedback hr{
+#containerFeedback hr {
   margin-left: auto;
   margin-right: auto;
   width: 45%;
   border: 1px solid #c2128d;
 }
 
-.starsDiv{
+.starsDiv {
   margin-bottom: 2%;
 }
-
