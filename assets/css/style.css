@@ -12,6 +12,11 @@
   background-size: cover;
   padding: 2em 5em;
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  
 }
 header {
   display: flex;
@@ -25,21 +30,29 @@ h1 {
   font-family: "Outfit", sans-serif;
   font-size: 2em;
 }
-
-main {
+main,
+footer {
   width: 100%;
-  padding: 5.6em 0;
+  padding: 5em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /*align content perchè stiamo centrando su un flex-direction column*/  
+}
+
+.mainIndex{
+  align-items: flex-start;
 }
 
 .welcomeContainer {
   width: 50%;
-  margin-bottom: 1em;
+  margin-bottom: 1em;  
 }
 
 .welcomeContainer h1 {
   font-size: 5em;
   margin-bottom: 2.5rem;
   line-height: 0.8;
+  align-self: ;
 }
 
 .welcomeContainer h2 {
@@ -48,10 +61,6 @@ main {
   font-weight: bold;
   font-size: 1.9em;
   margin-bottom: 10px;
-}
-
-.welcomeContainer {
-  line-height: 1.2;
 }
 
 strong,
@@ -71,31 +80,31 @@ ul li {
 form {
   position: relative;
   margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-#btnWelcomeProceed {
+#btnWelcomeProceed, #next-button  {
   background-color: #00ffff;
-  float: right;
   border: none;
   padding: 0.8em 3em;
   font-size: 1.5em;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
   box-shadow: 0px 0px 55px -16px #00ffff;
-  margin-right: 2em;
+  margin-right: 1em;
   font-family: "Outfit", sans-serif;
   color: black;
   text-decoration: none;
   font-weight: bold;
+  align-self: flex-end;
+  cursor: pointer;
 }
 
-.checkbox-container input[type="checkbox"] {
+.checkboxContainer input[type="checkbox"] {
   display: none;
 }
 
-.checkbox-container label {
+.checkboxContainer label {
   position: relative;
   cursor: pointer;
   display: flex;
@@ -104,6 +113,7 @@ form {
   padding-left: 2.5rem;
   line-height: 1.2;
   user-select: none;
+  margin-bottom: 1rem;
 }
 
 .checkboxContainer label::before {
@@ -115,21 +125,23 @@ form {
   width: 20px;
   height: 20px;
   border: 2px solid #ffffff;
-  background-color: #ffffff00;
+  background-color: transparent;
   transition: background-color 0.3s, border-color 0.3s;
 }
 
 .checkboxContainer input[type="checkbox"]:checked + label::before {
+  content: "✔";
   background-color: #c2128d;
-  border-color: none;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 #errorCheck {
-  padding-left: 2.5rem;
   color: #c2128d;
+
+  padding-left: 2.4rem;
 }
 
 #timer {
@@ -137,40 +149,83 @@ form {
 }
 
 text {
-  font-size:0.5em;
+  font-size: 0.5em;
 }
 .staticTextTimer {
   color: #e7e7eb;
 }
-#timerText{
+#timerText {
   font-size: 1.2rem;
 }
 
-/* MAGIA DELLE STELLINE*/
-
-/* filter per colorare di grigio le stelle inizialmente*/
-.star {
-  filter: invert(100%) sepia(97%) saturate(13%) hue-rotate(237deg)
-    brightness(104%) contrast(104%);
-}
-
-/*CSS FEEDBACK PAGE*/
-#feedbackTitle {
+.questionTitle {
   font-size: 3em;
-  font-weight: bolder;
-  padding: 2%;
-}
-
-#containerFeedback:not(header) {
+  max-width: 45%;
+  justify-self: center;
+  margin-bottom: 1em;
   text-align: center;
 }
 
-#containerFeedback main p{
-  font-size: 170%;
-  padding: 2%;
+#questionContainer {
+  padding: 1em 0;
+}
+#options-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2em;
+  width: 80%;
+}
+#options-container button {
+  width: 35%;
+  margin: 0.5em;
+  height: 6em;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.297);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.279);
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative; /* Necessario per il bordo gradiente con pseudo-elemento */
+  transition: all 0.3s ease; /* Transizioni fluide */
+  z-index: 1;
+  
 }
 
-#containerFeedback aside p{
-  font-size: 170%;
-  padding: 2%;
+#options-container button:hover {
+  border-width: 3px; /* Mantenere la larghezza del bordo */
+  color: white; /* Colore del testo invariato */
+  transform: scale(1.05); /* Effetto zoom sul bottone */
+  background-color:#c2128d;
+}
+  
+#options-container button::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50px; 
+  padding: 2px; 
+  background:linear-gradient(180deg, rgba(245,245,245,1) 0%, rgba(0,0,0,0.24702380952380953) 100%);
+  mask: /*Using the mask property, we apply two opaque layers. The bottom one will cover the whole element and the top one will cover only the padding box (so it will not cover the border area)*/
+    linear-gradient(#000 0 0) content-box, 
+    linear-gradient(#000 0 0);
+  mask-composite: exclude; 
+}
+
+#options-container button:focus::before {
+  background:linear-gradient(180deg, rgba(245,245,245,1) 0%, rgba(0,0,0,0.24702380952380953) 100%);
+  background-color:#c2128d;
+  padding: 4px; /* Adjust padding for a stronger focus effect */
+  transition: background 0.3s, padding 0.3s; /* Smooth transition for focus effect */
+}
+
+
+#questionNumber{
+  font-family: "Outfit", sans-serif;
+  letter-spacing: 2px;
+}
+
+.markQuestion{
+  color: #c2128d;
 }

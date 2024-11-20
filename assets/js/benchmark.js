@@ -210,17 +210,22 @@ let interval;
 
 function timer(totalDuration, circle) {
   let remainingTime = totalDuration;
-
   const circleCircumference = 2 * Math.PI * 40;
   // Circonferenza del cerchio (2 * π * r)
-  clearInterval(interval);
+  clearInterval(interval); //pulisce il timer prima di iniziarne uno nuovo
+
+
+  timerText.innerHTML = `${remainingTime}`;
+      // modo per avere un'animazione dinamica del valore di dashoffset settato sull'html. Dashoffset NASCONDE tutto il cerchio e con questo modo lo rivela a partire dall'alto (grazie allo 0)
+      const offset = circleCircumference * (remainingTime / totalDuration); // stabilisco la formula
+      timerProgress.style.strokeDashoffset = offset; //la rimando sullo stile!
+  
+
   interval = setInterval(() => {
     remainingTime--;
-    timerText.innerHTML = `${remainingTime}`; // Aggiorna il testo del timer
-
-    // modo per avere un'animazione dinamica del valore di dashoffset settato sull'html. Dashoffset NASCONDE tutto il cerchio e con questo modo lo rivela a partire dall'alto (grazie allo 0)
-    const offset = circleCircumference * (remainingTime / totalDuration); // stabilisco la formula
-    timerProgress.style.strokeDashoffset = offset; //la rimando sullo stile!
+  timerText.innerHTML = `${remainingTime}`; // Aggiorna il testo del timer
+ const offset = circleCircumference * (remainingTime / totalDuration);
+    timerProgress.style.strokeDashoffset = offset;
 
     if (remainingTime === 0) {
       nextQuestion();
