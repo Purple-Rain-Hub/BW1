@@ -181,7 +181,7 @@ const questionsHard = [
     type: "multiple",
     difficulty: "hard",
     category: "Science: Computers",
-    question: "In &quot;Hexadecimal&quot;, what color would be displayed from the color code? &quot;#00FF00&quot;?",
+    question: "In &quot;Hexadecimal&quot;, what color would be displayed from the color code &quot;#00FF00&quot;?",
     correct_answer: "Green",
     incorrect_answers: [
       "Red",
