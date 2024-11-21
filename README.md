@@ -1,7 +1,7 @@
 # BW1
 # BENCHMARK EPICODE
 Un'applicazione che simula il benchmark di epicode per testare le conoscenze teoriche nel campo della programmazione e sviluppo web, attraverso delle domande a risposta multipla o vero e falso che saranno selezionate dall'utente e poi valutate dal sistema con un punteggio finale.
-Oltre al quiz sarà possibile simulare la valutazione e la recensione dell'applicazione.
+Oltre al quiz sarà possibile simulare la valutazione e la recensione dell'applicazione.<br />
 ---
 ## Caratteristiche dell'applicazione
 L'applicazione si compone di 4 HTML, 4 JS e 1 CSS.<br /> 
@@ -14,7 +14,7 @@ Il quarto ed ultimo file HTML, chiamato feedbackPage.html, è la pagina di comme
 * **Domande:** le domande del benchamark, pescate randomicamente e con difficoltà scelta dall'utente, riguardano la programmazione, principalmente a livello teorico.
 * **Risposte:** le risposte possono essere multiple o Vero/Falso e, come le domande, la loro disposizione viene generata randomicamente
 * **Punteggio:** il punteggio verrà visualizzato al completamento del test attraverso un grafico e percentuali. È inoltre presente un menu a tendina con feedback del test fatto
-* **Feedback:** l'utente potrà valutare la propria esperienza e lasciare una recensione. 
+* **Feedback:** l'utente potrà valutare la propria esperienza e lasciare una recensione.
 ---
 ## Guida all'installazione e esecuzione del test
 1. Clonare o scaricare la repository sul proprio computer tramite github
