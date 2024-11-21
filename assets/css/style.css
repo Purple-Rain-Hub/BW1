@@ -12,12 +12,16 @@
   background-size: cover;
   padding: 2em 5em;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  
 }
+
+main {
+  height: 100vh;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -33,19 +37,19 @@ h1 {
 main,
 footer {
   width: 100%;
-  padding: 5em 0;
   display: flex;
   flex-direction: column;
-  align-items: center;  /*align content perchè stiamo centrando su un flex-direction column*/  
+  align-items: center; /*align content perchè stiamo centrando su un flex-direction column*/
 }
 
-.mainIndex{
+.mainIndex {
   align-items: flex-start;
+  justify-content: center;
 }
 
 .welcomeContainer {
   width: 50%;
-  margin-bottom: 1em;  
+  margin-bottom: 1em;
 }
 
 .welcomeContainer h1 {
@@ -84,19 +88,27 @@ form {
   justify-content: space-between;
 }
 
-#btnWelcomeProceed, #next-button  {
+.blueBtn{
   background-color: #00ffff;
   border: none;
   padding: 0.8em 3em;
   font-size: 1.5em;
   box-shadow: 0px 0px 55px -16px #00ffff;
-  margin-right: 1em;
   font-family: "Outfit", sans-serif;
   color: black;
   text-decoration: none;
   font-weight: bold;
   align-self: flex-end;
   cursor: pointer;
+}
+
+.blueBtn a {
+  text-decoration: none;
+  color: black;
+}
+
+.centerBtn {
+  align-self: center;
 }
 
 .checkboxContainer input[type="checkbox"] {
@@ -143,10 +155,6 @@ form {
   padding-left: 2.4rem;
 }
 
-#timer {
-  flex: 0 0 auto;
-}
-
 text {
   font-size: 0.5em;
 }
@@ -158,16 +166,35 @@ text {
 }
 
 .questionTitle {
-  font-size: 3em;
-  max-width: 45%;
+  font-size: 2.5em;
+  max-width: 60%;
   justify-self: center;
   margin-bottom: 1em;
   text-align: center;
+  line-height: 1.2;
 }
 
 #questionContainer {
-  padding: 1em 0;
+  justify-content: flex-start;
+  height: 70%;
+  box-sizing: border-box;
 }
+
+#difficultyContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+#difficultyContainer h1, .finalTitle {
+  text-align: center;
+  font-size: 4em;
+  font-weight: bold;
+  margin-bottom: 1em;
+  margin-top: 1.5em;
+}
+
 #options-container {
   display: flex;
   flex-wrap: wrap;
@@ -175,7 +202,9 @@ text {
   margin-bottom: 2em;
   width: 80%;
 }
-#options-container button {
+
+#options-container button,
+#difficultyContainer button {
   width: 35%;
   margin: 0.5em;
   height: 6em;
@@ -188,46 +217,60 @@ text {
   font-weight: bold;
   cursor: pointer;
   position: relative; /* Necessario per il bordo gradiente con pseudo-elemento */
-  transition: all 0.3s ease; /* Transizioni fluide */  
+  transition: all 0.3s ease; /* Transizioni fluide */
+  padding: 5px;
 }
 
-#options-container button:hover {
+#options-container button:hover,
+#difficultyContainer button:hover {
   border-width: 3px; /* Mantenere la larghezza del bordo */
   color: white; /* Colore del testo invariato */
   transform: scale(1.05); /* Effetto zoom sul bottone */
-  background-color:#c2128d;
+  background-color: #c2128d;
 }
-  
-#options-container button::before{
+
+#options-container button::before,
+#difficultyContainer button::before {
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 50px; 
-  padding: 2px; 
-  background:linear-gradient(180deg, rgba(245,245,245,1) 0%, rgba(0,0,0,0.24702380952380953) 100%);
-  mask: /*Using the mask property, we apply two opaque layers. The bottom one will cover the whole element and the top one will cover only the padding box (so it will not cover the border area)*/
-    linear-gradient(#000 0 0) content-box, 
+  border-radius: 50px;
+  padding: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(245, 245, 245, 1) 0%,
+    rgba(0, 0, 0, 0.24702380952380953) 100%
+  );
+  mask: /*Using the mask property, we apply two opaque layers. The bottom one will cover the whole element and the top one will cover only the padding box (so it will not cover the border area)*/ linear-gradient(
+        #000 0 0
+      )
+      content-box,
     linear-gradient(#000 0 0);
-  mask-composite: exclude; 
+  mask-composite: exclude;
 }
 
-#options-container button.selected {
-  background-color:#c2128d;
+#options-container button.selected,
+#difficultyContainer button.selected {
+  background-color: #c2128d;
   padding: 4px; /* Adjust padding for a stronger focus effect */
 }
 
+#difficultyContainer button{
+  font-size: 1.5em;
+}
 
-#questionNumber{
+#questionNumber {
   font-family: "Outfit", sans-serif;
   letter-spacing: 2px;
 }
 
-.markQuestion{
+.markQuestion {
   color: #c2128d;
 }
 
 #resultMain {
-  padding-top: 1.8em;
+ display: flex;
+ justify-content: center;
 }
 .chartContainer {
   position: relative;
@@ -262,7 +305,7 @@ text {
 
 .padreProva {
   font-family: "Outfit", sans-serif;
-  width: 100%;
+  width: 85%;
   display: flex;
   margin-bottom: 3em;
 }
@@ -290,16 +333,21 @@ text {
   width: 40%;
 }
 
-.provaText1 h4, .provaText2 h4, #correctPercentage, #wrongPercentage {
+.provaText1 h4,
+.provaText2 h4,
+#correctPercentage,
+#wrongPercentage {
   font-size: 3em;
 }
 
-#correctPercentage, #wrongPercentage {
+#correctPercentage,
+#wrongPercentage {
   font-size: 3em;
   font-weight: 700;
 }
 
-#correctQuestions, #wrongQuestions {
+#correctQuestions,
+#wrongQuestions {
   font-weight: 200;
   line-height: 1.5;
 }
@@ -310,18 +358,32 @@ text {
 
 .wrongAnswers {
   color: #c2138d;
+  font-size: 3em;
+}
+
+#chartText {
+  max-width: 50%;
 }
 
 #chartText h3 {
+  font-size: 1.2em;
   font-weight: 500;
   line-height: 1.5;
 }
 
-#chartText>p:last-child {
-  padding: 15px;
+#chartText > p:last-child {
   font-weight: lighter;
-  font-size: 0.6em;
+  font-size: 0.8em;
   line-height: 1.3;
+}
+
+#correctAnswers {
+  color: #01ffff;
+}
+
+#chartText #wrongAnswers {
+  color: #c2138d;
+  font-size: 1.2em;
 }
 
 .buttonRateUs button {
@@ -338,31 +400,55 @@ text {
   text-decoration: none;
 }
 
+/*CSS FEEDBACK PAGE*/
+#feedbackTitle {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.feedbackContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  width: 70%;
+  font-size: 1.75em;
+  border-bottom: 2px solid #c2128d;
+  padding: 0.2em 1em;
+  text-align: center;
+}
+
+.feedbackContainer p {
+  line-height: 1.3;
+  margin-bottom: 1.1em;
+}
+
+#inputFeedback {
+  background: transparent;
+  border: none;
+  font-size: large;
+  width: 35%;
+  width: 100%;
+}
+
+#inputFeedback:focus {
+  outline: none;
+}
+
 /* MAGIA DELLE STELLINE*/
 
 /* filter per colorare di grigio le stelle inizialmente*/
 .star {
-  filter: invert(100%) sepia(97%) saturate(13%) hue-rotate(237deg)
-    brightness(104%) contrast(104%);
+  filter: invert(100%) sepia(50%) saturate(13%) hue-rotate(237deg)
+    brightness(80%) contrast(100%);
 }
 
-/*CSS FEEDBACK PAGE*/
-#feedbackTitle {
-  font-size: 3em;
-  font-weight: bolder;
-  padding: 2%;
+.starsDiv{
+  margin-bottom: 2.5em;
 }
 
-#containerFeedback:not(header) {
-  text-align: center;
-}
-
-#containerFeedback main p{
-  font-size: 170%;
-  padding: 2%;
-}
-
-#containerFeedback aside p{
-  font-size: 170%;
-  padding: 2%;
+.starsDiv img {
+  /*filter: drop-shadow(0 0 15px rgba(1, 255, 255, 0.8));  Glow effect */
+  width: 2.1em;
 }
