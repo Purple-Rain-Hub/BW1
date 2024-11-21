@@ -6,6 +6,7 @@ const correctQuestions = document.getElementById("correctQuestions");
 const wrongQuestions = document.getElementById("wrongQuestions");
 const resumeContainer = document.getElementById("resumeContainer");
 
+let percentualeCorrette;
 let correctAnswers;
 let wrongAnswers;
 let total;
@@ -73,7 +74,7 @@ textInChart();
 
 function sideText() {
   total = results.correctAnswers + results.wrongAnswers;
-  const percentualeCorrette = (results.correctAnswers / total) * 100;
+  percentualeCorrette = (results.correctAnswers / total) * 100;
   const percentualeSbagliate = (results.wrongAnswers / total) * 100;
   correctPercentage.innerText = `${percentualeCorrette}%`;
   correctQuestions.innerText = `${results.correctAnswers}/${total} questions`;
@@ -123,3 +124,28 @@ print();
 function dropDownMenu() {
   resumeContainer.classList.toggle("show");
 }
+
+function coriandoli() {
+  // coriandoli da sinistra
+  confetti({
+    particleCount: 200, //numero coriandoli
+    spread: 140, // Ampiezza dell'angolo
+    origin: { x: 0, y: 0.6 }, // Da sinistra (x = 0)
+    colors: ['#ff0', '#f0f', '#0ff'] // Colori personalizzati
+  });
+
+  // coriandoli da destra
+  confetti({
+    particleCount: 200, 
+    spread: 140, 
+    origin: { x: 1, y: 0.6 }, // Da destra (x = 1)
+    colors: ['#ff0', '#f0f', '#0ff'] 
+  });
+}
+
+function showCoriandoli() {
+  if (percentualeCorrette>=60) {
+    return coriandoli();
+  }
+}
+showCoriandoli();
