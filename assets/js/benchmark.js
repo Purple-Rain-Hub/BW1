@@ -218,6 +218,9 @@ let questions;
 let difficultyBtn = document.getElementsByClassName("difficultyBtn");
 const easyBtn = document.getElementById("easyBtn");
 const hardBtn = document.getElementById("hardBtn");
+const wordAnwers = [];
+let currentQuestion;
+let ESPLODI;
 
 // Funzione per mescolare le domande
 function shuffleQuestions() {
@@ -257,6 +260,8 @@ function showQuestion() {
   `;
 
   questionContainer.innerHTML = questionHTML;
+
+  // SIMIL FOOTER:
   questionNumber.innerHTML = `QUESTION ${currentQuestionIndex + 1
     }/<span class="markQuestion">${questions.length}</span>`;
 }
@@ -267,19 +272,21 @@ function handleAnswerClick(answer, buttonElement) {
   const buttons = document.querySelectorAll('#options-container button');
   buttons.forEach((button) => button.classList.remove('selected'));
   // Evidenzia la risposta selezionata
-  buttonElement.classList.add('selected');
+  ESPLODI = buttonElement;
+  ESPLODI.classList.add('selected');
   selectedAnswer = answer;
-
+  
   // Abilita il bottone "Prossima domanda" se una risposta è selezionata
   document.getElementById('next-button').disabled = false;
 }
 
 // Funzione per passare alla domanda successiva
 function nextQuestion() {
-  //if (!selectedAnswer) return;
 
-  const currentQuestion = questions[currentQuestionIndex];
+  currentQuestion = questions[currentQuestionIndex];
 
+  secondStorage(ESPLODI, currentQuestion, selectedAnswer, currentQuestionIndex);
+  
   // Verifica se la risposta è corretta e salva nel localStorage
   const isCorrect = selectedAnswer === currentQuestion.correct_answer ? 1 : 0;
   saveAnswer(currentQuestionIndex, isCorrect);
@@ -299,10 +306,24 @@ function nextQuestion() {
 
 // Funzione per salvare la risposta nel localStorage
 function saveAnswer(questionIndex, isCorrect) {
-  const answers = JSON.parse(localStorage.getItem('quiz_answers')) || [];
+  const answers = JSON.parse(localStorage.getItem('quiz_answers')) || []; //al primo giro il json.parse non funziona, quindi answers=[]
   answers[questionIndex] = isCorrect;
   localStorage.setItem('quiz_answers', JSON.stringify(answers));
 }
+
+function secondStorage (ESPLODI, currentQuestion, selectedAnswer, questionIndex) {
+  if (ESPLODI.classList.contains('selected')) { //se hai selezionato qualcosa, stampa nel secondo local storage la domanda + la risposta selezionata
+  wordAnwers[questionIndex] = currentQuestion.question + ' ' + selectedAnswer + '. Correct answer: ' + currentQuestion.correct_answer;
+  const buttons = document.querySelectorAll('#options-container button');
+  buttons.forEach((button) => button.classList.remove('selected'));
+} else {  //se non selezioni nulla, stampa nel secondo local storage la domanda + 'empty answer'
+  wordAnwers[questionIndex] = currentQuestion.question + ' empty answer. Correct answer: ' + currentQuestion.correct_answer;
+  const buttons = document.querySelectorAll('#options-container button');
+  buttons.forEach((button) => button.classList.remove('selected'));
+}
+  localStorage.setItem('polloAnswers', JSON.stringify(wordAnwers)); // crea 'polloAnswers' nel local storage e riempilo con l'array wordAnswers
+}
+
 // Funzione per andare ai risultati
 function showGoToResultsButton() {
   const questionContainer = document.getElementById('questionContainer');

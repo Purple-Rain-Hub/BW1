@@ -77,3 +77,8 @@ function sideText() {
     return;
 }
 sideText();
+
+function getQuestions() {
+  const paperino = localStorage.getItem('polloAnswers');
+  return JSON.parse(paperino);
+}
