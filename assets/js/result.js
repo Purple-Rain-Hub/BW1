@@ -101,17 +101,17 @@ function print() {
     newDl.appendChild(newDt);
     if (resumeArray[i].hasOwnProperty("correct")) {
       const newDd = document.createElement("dd");
-      newDd.innerText = `❌ ${resumeArray[i].selected}`;
+      newDd.innerHTML = `<ion-icon name="close-sharp" class="wrongIcon"></ion-icon> ${resumeArray[i].selected}`;
       newDl.appendChild(newDd);
       const correctDt = document.createElement('dt');
       correctDt.innerText = 'Correct answer:';
       newDl.appendChild(correctDt);
       const correctDd = document.createElement("dd");
-      correctDd.innerText = `✅ ${resumeArray[i].correct}`;
+      correctDd.innerHTML = `<ion-icon name="checkmark-sharp" class="correctIcon"></ion-icon> ${resumeArray[i].correct}`;
       newDl.appendChild(correctDd);
     } else {
       const newDd = document.createElement("dd");
-      newDd.innerText = `✅ ${resumeArray[i].selected}`;
+      newDd.innerHTML = `<ion-icon name="checkmark-sharp" class="correctIcon"></ion-icon> ${resumeArray[i].selected}`;
       newDl.appendChild(newDd);
     }
     newDiv.appendChild(newDl);
@@ -119,3 +119,7 @@ function print() {
   }
 }
 print();
+
+function dropDownMenu() {
+  resumeContainer.classList.toggle("show");
+}

@@ -395,7 +395,15 @@ text {
   font-size: 1.2em;
 }
 
-.buttonRateUs button {
+.buttonRateUs {
+width: 100%;
+display: flex;
+border-bottom: 2px solid #c2138d;
+margin-bottom: 1em;
+justify-content: space-evenly;
+}
+
+.buttonRateUs button, .resumeContainer button {
   width: 11em;
   height: 3em;
   background-color: transparent;
@@ -404,6 +412,7 @@ text {
   font-weight: 600;
   font-size: larger;
   cursor: pointer;
+  margin-bottom: 3em;
 }
 
 .buttonRateUs button a {
@@ -462,4 +471,50 @@ text {
 .starsDiv img {
   /*filter: drop-shadow(0 0 15px rgba(1, 255, 255, 0.8));  Glow effect */
   width: 2.1em;
+}
+
+
+
+.dropDownNone {display: none;}
+.show {display:block;}
+
+.resumeContainer {
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#resumeContainer {
+  width: 80%;
+}
+
+#resumeContainer div {
+  margin-bottom: 1em;
+  line-height: 1.25;
+}
+
+#resumeContainer h4 {
+  font-style: italic;
+  margin-bottom: 0.4em;
+}
+
+dl {
+  padding-left: 1.5em;
+}
+
+dt {
+  font-weight: 600;
+}
+
+.correctIcon {
+  color: #01FFFF;
+  font-size: 1.3em;
+  vertical-align: middle;
+}
+
+.wrongIcon {
+  color: #C2138D;
+  font-size: 1.5em;
+  vertical-align: middle;
 }
