@@ -155,13 +155,14 @@ form {
 }
 
 text {
-  font-size: 0.5em;
+  font-size: 0.4em;
 }
 .staticTextTimer {
   color: #e7e7eb;
 }
 #timerText {
-  font-size: 1.2rem;
+  font-size: 2rem;
+  font-family: 'Outfit', sans-serif;
 }
 
 .questionTitle {
@@ -170,6 +171,7 @@ text {
   justify-self: center;
   text-align: center;
   line-height: 1.2;
+  margin-bottom: 1.2em;
 }
 
 #questionContainer {

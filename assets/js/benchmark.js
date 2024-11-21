@@ -219,7 +219,9 @@ function showQuestion() {
 
   // Mark up domande e risposte
   const questionHTML = `
-    <h1 class="questionTitle">${currentQuestion.question}</h1>
+    <h1 id='questionTitle' class="questionTitle">${
+      currentQuestion.question
+    }</h1>
     <div id="options-container">
       ${options
         .map(
@@ -241,7 +243,16 @@ function showQuestion() {
     currentQuestionIndex + 1
   }/<span class="markQuestion">${questions.length}</span>
   </div>`;
-  questionContainer.innerHTML =`<div class="questionsDiv"> ${questionHTML} ${questionNumber} </div>` ;
+  questionContainer.innerHTML = `<div class="questionsDiv"> ${questionHTML} ${questionNumber} </div>`;
+  fontSize();
+}
+
+function fontSize() {
+  const fontTitle = document.getElementById('questionTitle');
+  const titleLength = fontTitle.innerText.length;
+  if (titleLength > 70) {
+    fontTitle.style.fontSize = `2.3em`;
+  }
 }
 
 // Funzione per gestire il clic su un'opzione
