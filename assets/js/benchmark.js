@@ -96,120 +96,101 @@ const questionsEasy = [
 
 const questionsHard = [
   {
-    type: "multiple",
-    difficulty: "hard",
-    category: "Science: Computers",
-    question: "If you were to code software in this language you&#039;d only be able to type 0&#039;s and 1&#039;s.",
-    correct_answer: "Binary",
-    incorrect_answers: [
-      "JavaScript",
-      "C++",
-      "Python"
-    ]
+    type: 'multiple',
+    difficulty: 'hard',
+    category: 'Science: Computers',
+    question:
+      'If you were to code software in this language you&#039;d only be able to type 0&#039;s and 1&#039;s.',
+    correct_answer: 'Binary',
+    incorrect_answers: ['JavaScript', 'C++', 'Python'],
   },
   {
-    type: "multiple",
-    difficulty: "hard",
-    category: "Science: Computers",
-    question: "Which computer language would you associate Django framework with?",
-    correct_answer: "Python",
-    incorrect_answers: [
-      "C#",
-      "C++",
-      "Java"
-    ]
+    type: 'multiple',
+    difficulty: 'hard',
+    category: 'Science: Computers',
+    question:
+      'Which computer language would you associate Django framework with?',
+    correct_answer: 'Python',
+    incorrect_answers: ['C#', 'C++', 'Java'],
   },
   {
-    "type": "multiple",
-    "difficulty": "hard",
-    "category": "Science: Computers",
-    "question": "In computing, what does MIDI stand for?",
-    "correct_answer": "Musical Instrument Digital Interface",
-    "incorrect_answers": [
-      "Musical Interface of Digital Instruments",
-      "Modular Interface of Digital Instruments",
-      "Musical Instrument Data Interface"
-    ]
+    type: 'multiple',
+    difficulty: 'hard',
+    category: 'Science: Computers',
+    question: 'In computing, what does MIDI stand for?',
+    correct_answer: 'Musical Instrument Digital Interface',
+    incorrect_answers: [
+      'Musical Interface of Digital Instruments',
+      'Modular Interface of Digital Instruments',
+      'Musical Instrument Data Interface',
+    ],
   },
   {
-    type: "multiple",
-    difficulty: "hard",
-    category: "Science: Computers",
-    question: "The programming language &#039;Swift&#039; was created to replace what other programming language?",
-    correct_answer: "Objective-C",
-    incorrect_answers: [
-      "C#",
-      "Ruby",
-      "C++"
-    ]
+    type: 'multiple',
+    difficulty: 'hard',
+    category: 'Science: Computers',
+    question:
+      'The programming language &#039;Swift&#039; was created to replace what other programming language?',
+    correct_answer: 'Objective-C',
+    incorrect_answers: ['C#', 'Ruby', 'C++'],
   },
   {
-    type: "boolean",
-    difficulty: "hard",
-    category: "Science: Computers",
-    question: "The Windows ME operating system was released in the year 2000.",
-    correct_answer: "True",
-    incorrect_answers: [
-      "False"
-    ]
+    type: 'boolean',
+    difficulty: 'hard',
+    category: 'Science: Computers',
+    question: 'The Windows ME operating system was released in the year 2000.',
+    correct_answer: 'True',
+    incorrect_answers: ['False'],
   },
   {
-    type: "multiple",
-    difficulty: "hard",
-    category: "Science: Computers",
-    question: "Which computer hardware device provides an interface for all other connected devices to communicate?",
-    correct_answer: "Motherboard",
+    type: 'multiple',
+    difficulty: 'hard',
+    category: 'Science: Computers',
+    question:
+      'Which computer hardware device provides an interface for all other connected devices to communicate?',
+    correct_answer: 'Motherboard',
     incorrect_answers: [
-      "Central Processing Unit",
-      "Hard Disk Drive",
-      "Random Access Memory"
-    ]
+      'Central Processing Unit',
+      'Hard Disk Drive',
+      'Random Access Memory',
+    ],
   },
   {
-    type: "multiple",
-    difficulty: "hard",
-    category: "Science: Computers",
-    question: "Which company was established on April 1st, 1976 by Steve Jobs, Steve Wozniak and Ronald Wayne?",
-    correct_answer: "Apple",
-    incorrect_answers: [
-      "Microsoft",
-      "Atari",
-      "Commodore"
-    ]
+    type: 'multiple',
+    difficulty: 'hard',
+    category: 'Science: Computers',
+    question:
+      'Which company was established on April 1st, 1976 by Steve Jobs, Steve Wozniak and Ronald Wayne?',
+    correct_answer: 'Apple',
+    incorrect_answers: ['Microsoft', 'Atari', 'Commodore'],
   },
   {
-    type: "multiple",
-    difficulty: "hard",
-    category: "Science: Computers",
-    question: "In &quot;Hexadecimal&quot;, what color would be displayed from the color code &quot;#00FF00&quot;?",
-    correct_answer: "Green",
-    incorrect_answers: [
-      "Red",
-      "Blue",
-      "Yellow"
-    ]
+    type: 'multiple',
+    difficulty: 'hard',
+    category: 'Science: Computers',
+    question:
+      'In &quot;Hexadecimal&quot;, what color would be displayed from the color code &quot;#00FF00&quot;?',
+    correct_answer: 'Green',
+    incorrect_answers: ['Red', 'Blue', 'Yellow'],
   },
   {
-    type: "boolean",
-    difficulty: "hard",
-    category: "Science: Computers",
-    question: "&quot;HTML&quot; stands for Hypertext Markup Language.",
-    correct_answer: "True",
-    incorrect_answers: [
-      "False"
-    ]
+    type: 'boolean',
+    difficulty: 'hard',
+    category: 'Science: Computers',
+    question: '&quot;HTML&quot; stands for Hypertext Markup Language.',
+    correct_answer: 'True',
+    incorrect_answers: ['False'],
   },
   {
-    type: "boolean",
-    difficulty: "hard",
-    category: "Science: Computers",
-    question: "The NVidia GTX 1080 gets its name because it can only render at a 1920x1080 screen resolution.",
-    correct_answer: "False",
-    incorrect_answers: [
-      "True"
-    ]
+    type: 'boolean',
+    difficulty: 'hard',
+    category: 'Science: Computers',
+    question:
+      'The NVidia GTX 1080 gets its name because it can only render at a 1920x1080 screen resolution.',
+    correct_answer: 'False',
+    incorrect_answers: ['True'],
   },
-]
+];
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -232,7 +213,6 @@ function shuffleQuestions() {
 function showQuestion() {
   const currentQuestion = questions[currentQuestionIndex];
   const questionContainer = document.getElementById('questionContainer');
-  const questionNumber = document.getElementById('questionNumber');
 
   // Mescolare le risposte
   const options = [
@@ -242,28 +222,40 @@ function showQuestion() {
 
   // Mark up domande e risposte
   const questionHTML = `
-    <h1 class="questionTitle">${currentQuestion.question}</h1>
+    <h1 id='questionTitle' class="questionTitle">${
+      currentQuestion.question
+    }</h1>
     <div id="options-container">
       ${options
-      .map(
-        (option, index) => `
+        .map(
+          (option, index) => `
         
           <button id="option-${index}" onclick="handleAnswerClick('${option}', this)">
             ${option}
           </button>
         
       `
-      )
-      .join('')}
+        )
+        .join('')}
     </div>
-    <button id="next-button" class="blueBtn" onclick="nextQuestion()" disabled>PROCEED</button>
+        <button id="next-button" class="blueBtn" onclick="nextQuestion()" disabled>PROCEED</button>
+    
   `;
 
-  questionContainer.innerHTML = questionHTML;
+  const questionNumber = ` <div class = 'questionNumber'> QUESTION ${
+    currentQuestionIndex + 1
+  }/<span class="markQuestion">${questions.length}</span>
+  </div>`;
+  questionContainer.innerHTML = `<div class="questionsDiv"> ${questionHTML} ${questionNumber} </div>`;
+  fontSize();
+}
 
-  // SIMIL FOOTER:
-  questionNumber.innerHTML = `QUESTION ${currentQuestionIndex + 1
-    }/<span class="markQuestion">${questions.length}</span>`;
+function fontSize() {
+  const fontTitle = document.getElementById('questionTitle');
+  const titleLength = fontTitle.innerText.length;
+  if (titleLength > 70) {
+    fontTitle.style.fontSize = `2.3em`;
+  }
 }
 
 // Funzione per gestire il clic su un'opzione
@@ -327,7 +319,7 @@ function secondStorage (ESPLODI, currentQuestion, selectedAnswer, questionIndex)
 // Funzione per andare ai risultati
 function showGoToResultsButton() {
   const questionContainer = document.getElementById('questionContainer');
-  const questionNumber = document.getElementById('questionNumber');
+  const questionNumber = document.querySelector('.questionNumber');
 
   // Rimuove il numero della domanda
   questionNumber.innerHTML = '';
@@ -346,9 +338,18 @@ function goToResults() {
   location.href = 'result.html';
 }
 
+function timerEnd() {
+  const questionText = document.getElementById('questionText');
+  questionText.innerHTML = `<tspan class="staticTextTimer" x="50" dy="-5"> COMPLIMENTI!</tspan>      
+                          <tspan class="staticTextTimer"x="50" dy="10">HAI FINITO!</tspan>`;
+
+  const offset = circleCircumference; // stabilisco la formula
+  timerProgress.style.strokeDashoffset = offset;
+}
+
 // Funzione per inizializzare il quiz
 function startQuiz() {
-  timerContainer.style.display = "block"
+  timerContainer.style.display = 'block';
   shuffleQuestions(); // Mescolare le domande
   showQuestion(); // Mostra la prima domanda
   timer(difficulty, timerProgress);
@@ -394,17 +395,17 @@ function timer(totalDuration, circle) {
 
 //funzione init per la scelta della difficoltà
 function chooseDifficulty() {
-  timerContainer.style.display = "none";
-  easyBtn.addEventListener("click", function () {
+  timerContainer.style.display = 'none';
+  easyBtn.addEventListener('click', function () {
     questions = questionsEasy;
-    document.getElementById("difficultyContainer").style.display = "none";
+    document.getElementById('difficultyContainer').style.display = 'none';
     difficulty = 30;
     startQuiz();
-  })
-  hardBtn.addEventListener("click", function () {
+  });
+  hardBtn.addEventListener('click', function () {
     questions = questionsHard;
-    document.getElementById("difficultyContainer").style.display = "none";
+    document.getElementById('difficultyContainer').style.display = 'none';
     difficulty = 60;
     startQuiz();
-  })
+  });
 }
