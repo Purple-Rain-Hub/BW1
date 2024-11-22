@@ -33,9 +33,9 @@
         <div class="padreProva">
           <div class="provaText1">
             <!-- CORRECT ANS -->
-             <h4>Correct</h4>
-             <p id="correctPercentage"></p>
-             <p id="correctQuestions"></p>
+            <h4>Correct</h4>
+            <p id="correctPercentage"></p>
+            <p id="correctQuestions"></p>
           </div>
           <div class="chartContainer provaChart">
             <!-- CHART -->
@@ -46,18 +46,33 @@
           </div>
           <div class="provaText2">
             <!-- WRONG ANS -->
-             <h4>Wrong</h4>
-             <p id="wrongPercentage"></p>
-             <p id="wrongQuestions"></p>
+            <h4>Wrong</h4>
+            <p id="wrongPercentage"></p>
+            <p id="wrongQuestions"></p>
           </div>
         </div>
         <div class="buttonRateUs">
           <!-- BOTTONE -->
-          <button type="button" id="btnRateUs"><a href="feedbackPage.html">RATE US</a></button>
+          <button onclick="dropDownMenu()">RESUME</button>
+          <button type="button" id="btnRateUs">
+            <a href="feedbackPage.html">RATE US</a>
+          </button>
           <!-- link per pagina 4 -->
+        </div>
+        <div class="resumeContainer">
+          <div id="resumeContainer" class="dropDownNone"></div>
         </div>
       </main>
     </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="assets/js/result.js"></script>
   </body>
