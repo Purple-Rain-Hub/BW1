@@ -201,7 +201,7 @@ const easyBtn = document.getElementById("easyBtn");
 const hardBtn = document.getElementById("hardBtn");
 const wordAnwers = [];
 let currentQuestion;
-let ESPLODI;
+let ESPLODI = hardBtn
 
 // Funzione per mescolare le domande
 function shuffleQuestions() {
@@ -306,8 +306,20 @@ function secondStorage(
   selectedAnswer,
   questionIndex
 ) {
-  if (ESPLODI.classList.contains("selected")) {
+  console.log(ESPLODI);
+  
+  if (!ESPLODI.classList.contains("selected")) {
     //se hai selezionato qualcosa, stampa nel secondo local storage la domanda + la risposta selezionata
+    wordAnwers[questionIndex] =
+    {
+      questionTitle: currentQuestion.question,
+      selected: ' ',
+      correct: currentQuestion.correct_answer,
+    }
+    const buttons = document.querySelectorAll("#options-container button");
+    buttons.forEach((button) => button.classList.remove("selected"));
+  } else {
+    //se non selezioni nulla, stampa nel secondo local storage la domanda + 'empty answer'
     if (selectedAnswer != currentQuestion.correct_answer) {
       wordAnwers[questionIndex] = {
         questionTitle: currentQuestion.question,
@@ -318,22 +330,12 @@ function secondStorage(
       buttons.forEach((button) => button.classList.remove("selected"));
     } else {
       wordAnwers[questionIndex] = {
-          questionTitle: currentQuestion.question,
-          selected: selectedAnswer,
-        }
+        questionTitle: currentQuestion.question,
+        selected: selectedAnswer,
+      }
       const buttons = document.querySelectorAll("#options-container button");
       buttons.forEach((button) => button.classList.remove("selected"));
     }
-  } else {
-    //se non selezioni nulla, stampa nel secondo local storage la domanda + 'empty answer'
-    wordAnwers[questionIndex] = 
-    {
-      questionTitle: currentQuestion.question,
-      selected: ' ',
-      correct: currentQuestion.correct_answer,
-    }
-    const buttons = document.querySelectorAll("#options-container button");
-    buttons.forEach((button) => button.classList.remove("selected"));
   }
   localStorage.setItem("polloAnswers", JSON.stringify(wordAnwers)); // crea 'polloAnswers' nel local storage e riempilo con l'array wordAnswers
 }
@@ -408,6 +410,8 @@ function timer(totalDuration, circle) {
     timerProgress.style.strokeDashoffset = offset;
 
     if (remainingTime === 0) {
+      console.log("oh");
+
       nextQuestion();
 
       //e stampa una nuova domanda
