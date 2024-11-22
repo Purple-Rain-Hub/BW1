@@ -42,7 +42,7 @@ function createChart(wrong, correct) {
     options: {
       //impostazioni del grafico
       rotation: 0, //fa girare il grafico in senso orario in modo da vedere wrong e correct nel lato giusto
-      responsive: false, //rende il grafico adattabile ad ogni tipo di schermo
+      responsive: false,
       maintainAspectRatio: false,
       cutout: "72%",
       plugins: {
@@ -89,6 +89,7 @@ function getQuestions() {
   return JSON.parse(paperino);
 }
 
+//funzione per stampare il resume
 function print() {
   const resumeArray = getQuestions();
   for (let i = 0; i < resumeArray.length; i++) {

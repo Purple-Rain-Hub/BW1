@@ -217,15 +217,6 @@ function goToResults() {
   location.href = "result.html";
 }
 
-function timerEnd() {
-  const questionText = document.getElementById("questionText");
-  questionText.innerHTML = `<tspan class="staticTextTimer" x="50" dy="-5"> COMPLIMENTI!</tspan>      
-                          <tspan class="staticTextTimer"x="50" dy="10">HAI FINITO!</tspan>`;
-
-  const offset = circleCircumference; // stabilisco la formula
-  timerProgress.style.strokeDashoffset = offset;
-}
-
 // Funzione per andare ai risultati
 function showGoToResultsButton() {
   const questionContainer = document.getElementById("questionContainer");
@@ -256,10 +247,9 @@ function secondStorage(
   selectedAnswer,
   questionIndex
 ) {
-  console.log(ESPLODI);
   
   if (!ESPLODI.classList.contains("selected")) {
-    //se hai selezionato qualcosa, stampa nel secondo local storage la domanda + la risposta selezionata
+    //se non selezioni nulla, stampa nel secondo local storage la domanda + 'empty answer'
     wordAnwers[questionIndex] =
     {
       questionTitle: currentQuestion.question,
@@ -269,7 +259,7 @@ function secondStorage(
     const buttons = document.querySelectorAll("#options-container button");
     buttons.forEach((button) => button.classList.remove("selected"));
   } else {
-    //se non selezioni nulla, stampa nel secondo local storage la domanda + 'empty answer'
+    //se hai selezionato qualcosa, stampa nel secondo local storage la domanda + la risposta selezionata
     if (selectedAnswer != currentQuestion.correct_answer) {
       wordAnwers[questionIndex] = {
         questionTitle: currentQuestion.question,
@@ -397,7 +387,6 @@ function timer(totalDuration, circle) {
     timerProgress.style.strokeDashoffset = offset;
 
     if (remainingTime === 0) {
-      console.log("oh");
 
       nextQuestion();
 
