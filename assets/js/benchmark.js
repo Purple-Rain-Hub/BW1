@@ -100,7 +100,7 @@ const questionsHard = [
     difficulty: "hard",
     category: "Science: Computers",
     question:
-      "If you were to code software in this language you&#039;d only be able to type 0&#039;s and 1&#039;s.",
+      "If you were to code software in this language you'd only be able to type 0's and 1's.",
     correct_answer: "Binary",
     incorrect_answers: ["JavaScript", "C++", "Python"],
   },
@@ -130,7 +130,7 @@ const questionsHard = [
     difficulty: "hard",
     category: "Science: Computers",
     question:
-      "The programming language &#039;Swift&#039; was created to replace what other programming language?",
+      "The programming language \"Swift\" was created to replace what other programming language?",
     correct_answer: "Objective-C",
     incorrect_answers: ["C#", "Ruby", "C++"],
   },
@@ -169,7 +169,7 @@ const questionsHard = [
     difficulty: "hard",
     category: "Science: Computers",
     question:
-      "In &quot;Hexadecimal&quot;, what color would be displayed from the color code &quot;#00FF00&quot;?",
+      "In \"Hexadecimal\", what color would be displayed from the color code \"#00FF00\"?",
     correct_answer: "Green",
     incorrect_answers: ["Red", "Blue", "Yellow"],
   },
@@ -177,7 +177,7 @@ const questionsHard = [
     type: "boolean",
     difficulty: "hard",
     category: "Science: Computers",
-    question: "&quot;HTML&quot; stands for Hypertext Markup Language.",
+    question: "\"HTML\" stands for Hypertext Markup Language.",
     correct_answer: "True",
     incorrect_answers: ["False"],
   },
