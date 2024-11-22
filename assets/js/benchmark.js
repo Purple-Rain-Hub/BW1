@@ -202,95 +202,45 @@ const hardBtn = document.getElementById("hardBtn");
 const wordAnwers = [];
 let currentQuestion;
 let ESPLODI = hardBtn
+const timerProgress = document.getElementById("timerProgress");
+const timerText = document.getElementById("timerText");
+//const totalDuration = 30; // Durata totale in secondi DA CAMBIRE SE VOGLIAMO UN TIMER DINAMICO. Per farlo devo intercettare la difficoltà della domanda.
+let difficulty; //if facile 30 else 60
+const intervalDuration = 1000; // Intervallo in millisecondi
+const circleCircumference = 2 * Math.PI * 40;
+//TIMER//
+let interval;
+const timerContainer = document.getElementById("timer");
 
-// Funzione per mescolare le domande
-function shuffleQuestions() {
-  // Mescolare l'array delle domande
-  questions.sort(() => Math.random() - 0.5);
+// Funzione per andare alla pagina dei risultati
+function goToResults() {
+  location.href = "result.html";
 }
 
-// Funzione per visualizzare la domanda
-function showQuestion() {
-  const currentQuestion = questions[currentQuestionIndex];
+function timerEnd() {
+  const questionText = document.getElementById("questionText");
+  questionText.innerHTML = `<tspan class="staticTextTimer" x="50" dy="-5"> COMPLIMENTI!</tspan>      
+                          <tspan class="staticTextTimer"x="50" dy="10">HAI FINITO!</tspan>`;
+
+  const offset = circleCircumference; // stabilisco la formula
+  timerProgress.style.strokeDashoffset = offset;
+}
+
+// Funzione per andare ai risultati
+function showGoToResultsButton() {
   const questionContainer = document.getElementById("questionContainer");
+  const questionNumber = document.querySelector(".questionNumber");
 
-  // Mescolare le risposte
-  const options = [
-    ...currentQuestion.incorrect_answers,
-    currentQuestion.correct_answer,
-  ].sort(() => Math.random() - 0.5);
+  // Rimuove il numero della domanda
+  questionNumber.innerHTML = "";
 
-  // Mark up domande e risposte
-  const questionHTML = `
-    <h1 id='questionTitle' class="questionTitle">${currentQuestion.question
-    }</h1>
-    <div id="options-container">
-      ${options
-      .map(
-        (option, index) => `
-        
-          <button id="option-${index}" onclick="handleAnswerClick('${option}', this)">
-            ${option}
-          </button>
-        
-      `
-      )
-      .join("")}
-    </div>
-        <button id="next-button" class="blueBtn" onclick="nextQuestion()" disabled>PROCEED</button>
-    
-  `;
-
-  const questionNumber = ` <div class = 'questionNumber'> QUESTION ${currentQuestionIndex + 1
-    }/<span class="markQuestion">${questions.length}</span>
-  </div>`;
-  questionContainer.innerHTML = `<div class="questionsDiv"> ${questionHTML} ${questionNumber} </div>`;
-  fontSize();
-}
-
-function fontSize() {
-  const fontTitle = document.getElementById("questionTitle");
-  const titleLength = fontTitle.innerText.length;
-  if (titleLength > 70) {
-    fontTitle.style.fontSize = `2.3em`;
-  }
-}
-
-// Funzione per gestire il clic su un'opzione
-function handleAnswerClick(answer, buttonElement) {
-  // Toglie la classe selected ai bottoni precedentemente selezionati
-  const buttons = document.querySelectorAll("#options-container button");
-  buttons.forEach((button) => button.classList.remove("selected"));
-  // Evidenzia la risposta selezionata
-  ESPLODI = buttonElement;
-  ESPLODI.classList.add("selected");
-  selectedAnswer = answer;
-
-  // Abilita il bottone "Prossima domanda" se una risposta è selezionata
-  document.getElementById("next-button").disabled = false;
-}
-
-// Funzione per passare alla domanda successiva
-function nextQuestion() {
-  currentQuestion = questions[currentQuestionIndex];
-
-  secondStorage(ESPLODI, currentQuestion, selectedAnswer, currentQuestionIndex);
-
-  // Verifica se la risposta è corretta e salva nel localStorage
-  const isCorrect = selectedAnswer === currentQuestion.correct_answer ? 1 : 0;
-  saveAnswer(currentQuestionIndex, isCorrect);
-
-  // Passa alla domanda successiva
-  currentQuestionIndex++;
-
-  // Se ci sono altre domande, mostra la successiva
-  if (currentQuestionIndex < questions.length) {
-    showQuestion();
-    timer(difficulty, timerProgress); ///timer
-  } else {
-    // Se tutte le domande sono state risposte, collega alla pagina dei risultati
-    showGoToResultsButton();
-  }
+  // Sostituisce il contenuto con il messaggio finale
+  questionContainer.innerHTML = `
+              <h1 class='finalTitle'>Congratulations!<br/> You have completed the exam.</h1>
+        <button class='blueBtn centerBtn' onclick="goToResults()">GO TO RESULT</button>
+          `;
+  clearInterval(interval);
+  timerContainer.innerText = "";
 }
 
 // Funzione per salvare la risposta nel localStorage
@@ -340,58 +290,95 @@ function secondStorage(
   localStorage.setItem("polloAnswers", JSON.stringify(wordAnwers)); // crea 'polloAnswers' nel local storage e riempilo con l'array wordAnswers
 }
 
-// Funzione per andare ai risultati
-function showGoToResultsButton() {
+// Funzione per passare alla domanda successiva
+function nextQuestion() {
+  currentQuestion = questions[currentQuestionIndex];
+
+  secondStorage(ESPLODI, currentQuestion, selectedAnswer, currentQuestionIndex);
+
+  // Verifica se la risposta è corretta e salva nel localStorage
+  const isCorrect = selectedAnswer === currentQuestion.correct_answer ? 1 : 0;
+  saveAnswer(currentQuestionIndex, isCorrect);
+
+  // Passa alla domanda successiva
+  currentQuestionIndex++;
+
+  // Se ci sono altre domande, mostra la successiva
+  if (currentQuestionIndex < questions.length) {
+    showQuestion();
+    timer(difficulty, timerProgress); ///timer
+  } else {
+    // Se tutte le domande sono state risposte, collega alla pagina dei risultati
+    showGoToResultsButton();
+  }
+}
+
+// Funzione per gestire il clic su un'opzione
+function handleAnswerClick(answer, buttonElement) {
+  // Toglie la classe selected ai bottoni precedentemente selezionati
+  const buttons = document.querySelectorAll("#options-container button");
+  buttons.forEach((button) => button.classList.remove("selected"));
+  // Evidenzia la risposta selezionata
+  ESPLODI = buttonElement;
+  ESPLODI.classList.add("selected");
+  selectedAnswer = answer;
+
+  // Abilita il bottone "Prossima domanda" se una risposta è selezionata
+  document.getElementById("next-button").disabled = false;
+}
+
+function fontSize() {
+  const fontTitle = document.getElementById("questionTitle");
+  const titleLength = fontTitle.innerText.length;
+  if (titleLength > 70) {
+    fontTitle.style.fontSize = `2.3em`;
+  }
+}
+
+// Funzione per visualizzare la domanda
+function showQuestion() {
+  const currentQuestion = questions[currentQuestionIndex];
   const questionContainer = document.getElementById("questionContainer");
-  const questionNumber = document.querySelector(".questionNumber");
 
-  // Rimuove il numero della domanda
-  questionNumber.innerHTML = "";
+  // Mescolare le risposte
+  const options = [
+    ...currentQuestion.incorrect_answers,
+    currentQuestion.correct_answer,
+  ].sort(() => Math.random() - 0.5);
 
-  // Sostituisce il contenuto con il messaggio finale
-  questionContainer.innerHTML = `
-              <h1 class='finalTitle'>Congratulations!<br/> You have completed the exam.</h1>
-        <button class='blueBtn centerBtn' onclick="goToResults()">GO TO RESULT</button>
-          `;
-  clearInterval(interval);
-  timerContainer.innerText = "";
+  // Mark up domande e risposte
+  const questionHTML = `
+    <h1 id='questionTitle' class="questionTitle">${currentQuestion.question
+    }</h1>
+    <div id="options-container">
+      ${options
+      .map(
+        (option, index) => `
+        
+          <button id="option-${index}" onclick="handleAnswerClick('${option}', this)">
+            ${option}
+          </button>
+        
+      `
+      )
+      .join("")}
+    </div>
+        <button id="next-button" class="blueBtn" onclick="nextQuestion()" disabled>PROCEED</button>
+    
+  `;
+
+  const questionNumber = ` <div class = 'questionNumber'> QUESTION ${currentQuestionIndex + 1
+    }/<span class="markQuestion">${questions.length}</span>
+  </div>`;
+  questionContainer.innerHTML = `<div class="questionsDiv"> ${questionHTML} ${questionNumber} </div>`;
+  fontSize();
 }
 
-// Funzione per andare alla pagina dei risultati
-function goToResults() {
-  location.href = "result.html";
+// Funzione per mescolare le domande
+function shuffleQuestions() {
+  // Mescolare l'array delle domande
+  questions.sort(() => Math.random() - 0.5);
 }
-
-function timerEnd() {
-  const questionText = document.getElementById("questionText");
-  questionText.innerHTML = `<tspan class="staticTextTimer" x="50" dy="-5"> COMPLIMENTI!</tspan>      
-                          <tspan class="staticTextTimer"x="50" dy="10">HAI FINITO!</tspan>`;
-
-  const offset = circleCircumference; // stabilisco la formula
-  timerProgress.style.strokeDashoffset = offset;
-}
-
-// Funzione per inizializzare il quiz
-function startQuiz() {
-  timerContainer.style.display = "block";
-  shuffleQuestions(); // Mescolare le domande
-  showQuestion(); // Mostra la prima domanda
-  timer(difficulty, timerProgress);
-}
-
-// Avvia il quiz quando la pagina è caricata
-window.onload = chooseDifficulty;
-
-const timerProgress = document.getElementById("timerProgress");
-const timerText = document.getElementById("timerText");
-
-//const totalDuration = 30; // Durata totale in secondi DA CAMBIRE SE VOGLIAMO UN TIMER DINAMICO. Per farlo devo intercettare la difficoltà della domanda.
-let difficulty; //if facile 30 else 60
-const intervalDuration = 1000; // Intervallo in millisecondi
-const circleCircumference = 2 * Math.PI * 40;
-//TIMER//
-let interval;
-const timerContainer = document.getElementById("timer");
 
 function timer(totalDuration, circle) {
   let remainingTime = totalDuration;
@@ -419,6 +406,14 @@ function timer(totalDuration, circle) {
   }, intervalDuration);
 }
 
+// Funzione per inizializzare il quiz
+function startQuiz() {
+  timerContainer.style.display = "block";
+  shuffleQuestions(); // Mescolare le domande
+  showQuestion(); // Mostra la prima domanda
+  timer(difficulty, timerProgress);
+}
+
 //funzione init per la scelta della difficoltà
 function chooseDifficulty() {
   timerContainer.style.display = "none";
@@ -435,3 +430,6 @@ function chooseDifficulty() {
     startQuiz();
   });
 }
+
+// Avvia il quiz quando la pagina è caricata
+window.onload = chooseDifficulty;
