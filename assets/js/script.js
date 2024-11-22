@@ -23,4 +23,8 @@ function boxCheck() {
   }
 }
 
+btnWelcomeProceed.addEventListener("click", function(){
+  welcomeCheck.checked = false;
+})
+
 welcomeCheck.onclick = boxCheck;
